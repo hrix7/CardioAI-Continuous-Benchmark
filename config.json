@@ -1,0 +1,11 @@
+{
+  "seeds": [
+    1729,
+    2718,
+    3141
+  ],
+  "train_subjects": 100,
+  "test_subjects": 80,
+  "beats": 40,
+  "noise_shift": 0.08
+}
