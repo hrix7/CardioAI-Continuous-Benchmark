@@ -38,6 +38,14 @@ Validation has read-only repository permissions and never retains checkout crede
 
 Each successful run uploads its verified report/data artifact for 30 days and displays the report in the run summary. Identical results produce no empty commits. A daily rerun verifies reproducibility; it does not invent research progress or autonomously modify algorithms. Notifications and branch protections are controlled in GitHub settings. Public repositories may need schedule reactivation after inactivity.
 
+## Numerical and evaluation safeguards
+
+Evaluation requires nonempty vectors of equal length, binary labels and both true classes. Missing predictions or invalid labels raise ValueError rather than being silently omitted; single-class truth is rejected because this benchmark requires both recalls. A constant predictor remains valid.
+
+## Development history
+
+See [completed improvements and validation](DEVELOPMENT_LOG.md) and the [ordered development backlog](DEVELOPMENT_BACKLOG.md).
+
 ## Roadmap
 
 Add independently sourced, license-reviewed public data, stronger baselines and uncertainty estimates before any real-data claims. Keep synthetic and public-data results visibly separate. Clinical deployment is outside this project's scope.

@@ -53,6 +53,13 @@ def predict(model, x):
     return min(range(2), key=lambda k: sum((a-b)**2 for a,b in zip(z, centroids[k])))
 
 def scores(truth, predicted):
+    # Never let zip silently discard missing predictions or unsupported labels.
+    if not truth or len(truth) != len(predicted):
+        raise ValueError('truth and predictions must be nonempty and equally sized')
+    if any(y not in (0, 1) for y in truth) or any(y not in (0, 1) for y in predicted):
+        raise ValueError('truth and predictions must contain only binary labels 0 and 1')
+    if set(truth) != {0, 1}:
+        raise ValueError('balanced accuracy requires both true classes in this benchmark')
     cm = [[sum(y == a and p == b for y,p in zip(truth,predicted)) for b in (0,1)] for a in (0,1)]
     recalls = [cm[k][k]/sum(cm[k]) for k in (0,1)]
     return {'confusion_matrix_rows_true': cm, 'balanced_accuracy': mean(recalls),

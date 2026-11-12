@@ -52,3 +52,28 @@ class BenchmarkTests(unittest.TestCase):
         p.predict(model,[100,100])
         self.assertEqual(training,original)
         self.assertEqual(model,p.fit(training))
+
+class EvaluationContractTests(unittest.TestCase):
+    def test_missing_or_extra_predictions_rejected(self):
+        for predicted in ([0], [0,1,1]):
+            with self.subTest(predicted=predicted):
+                with self.assertRaisesRegex(ValueError,'equally sized'):
+                    p.scores([0,1],predicted)
+
+    def test_empty_and_single_class_truth_rejected(self):
+        for truth,predicted in (([],[]),([0,0],[0,1]),([1],[1])):
+            with self.subTest(truth=truth):
+                with self.assertRaises(ValueError): p.scores(truth,predicted)
+
+    def test_unsupported_labels_rejected_in_either_vector(self):
+        for bad in (-1,2,float('nan'),float('inf'),'0',None):
+            for truth,predicted in (([0,1],[0,bad]),([bad,1],[0,1])):
+                with self.subTest(truth=truth,predicted=predicted):
+                    with self.assertRaisesRegex(ValueError,'binary labels'):
+                        p.scores(truth,predicted)
+
+    def test_constant_predictor_is_valid_and_counts_all_subjects(self):
+        result=p.scores([0,0,0,1],[0,0,0,0])
+        self.assertEqual(result['accuracy'],.75)
+        self.assertEqual(result['balanced_accuracy'],.5)
+        self.assertEqual(sum(map(sum,result['confusion_matrix_rows_true'])),4)
