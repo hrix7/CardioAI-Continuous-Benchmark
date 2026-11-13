@@ -66,6 +66,17 @@ def scores(truth, predicted):
             'accuracy': sum(y == p for y,p in zip(truth,predicted))/len(truth),
             'n_test_subjects': len(truth)}
 
+def bootstrap_scores(truth, predicted, seed, replicates=400):
+    base=scores(truth,predicted)
+    if type(replicates) is not int or replicates<40:
+        raise ValueError('at least 40 bootstrap replicates required')
+    rng=random.Random(seed)
+    strata=[[int(y==p) for y,p in zip(truth,predicted) if y==k] for k in (0,1)]
+    values=sorted(mean([mean([rng.choice(group) for _ in group]) for group in strata]) for _ in range(replicates))
+    quantile=lambda p:values[max(0,math.ceil(p*replicates)-1)]
+    base['balanced_accuracy_bootstrap_95_percentile']={'lower':quantile(.025),'upper':quantile(.975),'replicates':replicates,'seed':seed,'method':'Class-stratified subject resampling; fixed fitted model; nearest-rank percentile; conditional on this holdout cohort, not training or cross-seed uncertainty.'}
+    return base
+
 def run(config):
     rows = [['seed', 'split', 'subject', 'label', 'beat', 'rr_seconds']]
     experiments = []
@@ -81,8 +92,8 @@ def run(config):
                 rows.extend([seed,split,f'{seed}-{split}-{subject}',label,i,format(x,'.12g')] for i,x in enumerate(rr))
                 dest.append((features(rr),label))
         model = fit(train)
-        experiments.append({'seed':seed, 'in_distribution':scores([y for x,y in test],[predict(model,x) for x,y in test]),
-                            'noise_shift':scores([y for x,y in shifted],[predict(model,x) for x,y in shifted]),
+        experiments.append({'seed':seed, 'in_distribution':bootstrap_scores([y for x,y in test],[predict(model,x) for x,y in test],seed+100000),
+                            'noise_shift':bootstrap_scores([y for x,y in shifted],[predict(model,x) for x,y in shifted],seed+200000),
                             'majority_baseline':scores([y for x,y in test],[0]*len(test)),
                             'model':model})
     return rows, {'experiments':experiments, 'interpretation':'Synthetic regular versus irregular RR patterns. Labels are generator settings, not diagnoses. No clinical inference.'}

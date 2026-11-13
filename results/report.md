@@ -11,6 +11,13 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
       "in_distribution": {
         "accuracy": 1.0,
         "balanced_accuracy": 1.0,
+        "balanced_accuracy_bootstrap_95_percentile": {
+          "lower": 1,
+          "method": "Class-stratified subject resampling; fixed fitted model; nearest-rank percentile; conditional on this holdout cohort, not training or cross-seed uncertainty.",
+          "replicates": 400,
+          "seed": 101729,
+          "upper": 1
+        },
         "confusion_matrix_rows_true": [
           [
             40,
@@ -61,6 +68,13 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
       "noise_shift": {
         "accuracy": 0.6,
         "balanced_accuracy": 0.6,
+        "balanced_accuracy_bootstrap_95_percentile": {
+          "lower": 0.5375,
+          "method": "Class-stratified subject resampling; fixed fitted model; nearest-rank percentile; conditional on this holdout cohort, not training or cross-seed uncertainty.",
+          "replicates": 400,
+          "seed": 201729,
+          "upper": 0.6625
+        },
         "confusion_matrix_rows_true": [
           [
             8,
@@ -79,6 +93,13 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
       "in_distribution": {
         "accuracy": 1.0,
         "balanced_accuracy": 1.0,
+        "balanced_accuracy_bootstrap_95_percentile": {
+          "lower": 1,
+          "method": "Class-stratified subject resampling; fixed fitted model; nearest-rank percentile; conditional on this holdout cohort, not training or cross-seed uncertainty.",
+          "replicates": 400,
+          "seed": 102718,
+          "upper": 1
+        },
         "confusion_matrix_rows_true": [
           [
             40,
@@ -129,6 +150,13 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
       "noise_shift": {
         "accuracy": 0.5375,
         "balanced_accuracy": 0.5375,
+        "balanced_accuracy_bootstrap_95_percentile": {
+          "lower": 0.5,
+          "method": "Class-stratified subject resampling; fixed fitted model; nearest-rank percentile; conditional on this holdout cohort, not training or cross-seed uncertainty.",
+          "replicates": 400,
+          "seed": 202718,
+          "upper": 0.575
+        },
         "confusion_matrix_rows_true": [
           [
             3,
@@ -147,6 +175,13 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
       "in_distribution": {
         "accuracy": 1.0,
         "balanced_accuracy": 1.0,
+        "balanced_accuracy_bootstrap_95_percentile": {
+          "lower": 1,
+          "method": "Class-stratified subject resampling; fixed fitted model; nearest-rank percentile; conditional on this holdout cohort, not training or cross-seed uncertainty.",
+          "replicates": 400,
+          "seed": 103141,
+          "upper": 1
+        },
         "confusion_matrix_rows_true": [
           [
             40,
@@ -197,6 +232,13 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
       "noise_shift": {
         "accuracy": 0.5375,
         "balanced_accuracy": 0.5375,
+        "balanced_accuracy_bootstrap_95_percentile": {
+          "lower": 0.5,
+          "method": "Class-stratified subject resampling; fixed fitted model; nearest-rank percentile; conditional on this holdout cohort, not training or cross-seed uncertainty.",
+          "replicates": 400,
+          "seed": 203141,
+          "upper": 0.575
+        },
         "confusion_matrix_rows_true": [
           [
             3,
@@ -216,4 +258,4 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
 }
 ```
 
-Result SHA-256: `b0549897152582860a2151d8092a99172fff827b189768ddbd101941d9e3856b`
+Result SHA-256: `b2d29986eff17326c6b1cfbc5bb3a994ded75dad14a34fbf2030f44fc74b67d8`

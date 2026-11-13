@@ -9,3 +9,5 @@
 1. Add subject-level uncertainty intervals without tuning on holdouts.
 2. Compare a second training-only baseline.
 3. Document and validate any future public ECG dataset split.
+
+- Completed 2026-11-13: Class-stratified subject bootstrap percentile intervals for balanced accuracy.

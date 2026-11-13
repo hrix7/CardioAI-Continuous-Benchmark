@@ -53,3 +53,7 @@ Add independently sourced, license-reviewed public data, stronger baselines and 
 ## License
 
 MIT; see [LICENSE](LICENSE).
+
+## 2026-11-13 benchmark extension
+
+Reports 400 class-stratified subject bootstrap replicates with nearest-rank 2.5/97.5 percentiles and fixed seed offsets, separately for each holdout cohort and fitted model. Resampling RNG is independent of data generation. Intervals condition on the fitted model and cohort; they exclude training and cross-seed uncertainty and may degenerate on all-correct or all-wrong cohorts. No test-set tuning.

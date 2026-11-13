@@ -16,3 +16,11 @@ Validation before publication (Python 3.11.0, macOS):
 Metrics were regenerated, not edited by hand. Source hashes and artifact checksums were refreshed. Linux may differ from macOS in final floating-point bits; CI generates and verifies results within its own runtime. Synthetic data only; no clinical validation is claimed.
 
 Hosted results are available on this repository's [Actions page](https://github.com/hrix7/CardioAI-Continuous-Benchmark/actions). This entry records local checks, not a claim that an as-yet-unobserved hosted run succeeded.
+
+## 2026-11-13
+
+Class-stratified subject bootstrap percentile intervals for balanced accuracy.
+
+Reports 400 class-stratified subject bootstrap replicates with nearest-rank 2.5/97.5 percentiles and fixed seed offsets, separately for each holdout cohort and fitted model. Resampling RNG is independent of data generation. Intervals condition on the fitted model and cohort; they exclude training and cross-seed uncertainty and may degenerate on all-correct or all-wrong cohorts. No test-set tuning.
+
+Validation: full unittest suite, pipeline regeneration and byte-for-byte verifier, diff review; GitHub validation outcome is tracked after push. No workflow/permission changes.
