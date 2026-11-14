@@ -77,6 +77,16 @@ def bootstrap_scores(truth, predicted, seed, replicates=400):
     base['balanced_accuracy_bootstrap_95_percentile']={'lower':quantile(.025),'upper':quantile(.975),'replicates':replicates,'seed':seed,'method':'Class-stratified subject resampling; fixed fitted model; nearest-rank percentile; conditional on this holdout cohort, not training or cross-seed uncertainty.'}
     return base
 
+def fit_cv_baseline(samples):
+    if not samples or {y for x,y in samples}!={0,1} or any(len(x)!=2 or any(not math.isfinite(v) for v in x) for x,y in samples):
+        raise ValueError('finite two-feature training samples from both classes required')
+    return [mean([x[0] for x,y in samples if y==k]) for k in (0,1)]
+
+def predict_cv_baseline(class_means,x):
+    if len(class_means)!=2 or len(x)!=2 or any(not math.isfinite(v) for v in list(class_means)+list(x)):
+        raise ValueError('finite baseline means and two-feature vector required')
+    return min((0,1),key=lambda k:abs(x[0]-class_means[k]))
+
 def run(config):
     rows = [['seed', 'split', 'subject', 'label', 'beat', 'rr_seconds']]
     experiments = []
@@ -92,9 +102,14 @@ def run(config):
                 rows.extend([seed,split,f'{seed}-{split}-{subject}',label,i,format(x,'.12g')] for i,x in enumerate(rr))
                 dest.append((features(rr),label))
         model = fit(train)
+        cv_model = fit_cv_baseline(train)
         experiments.append({'seed':seed, 'in_distribution':bootstrap_scores([y for x,y in test],[predict(model,x) for x,y in test],seed+100000),
                             'noise_shift':bootstrap_scores([y for x,y in shifted],[predict(model,x) for x,y in shifted],seed+200000),
                             'majority_baseline':scores([y for x,y in test],[0]*len(test)),
+                            'cv_baseline_in_distribution':scores([y for x,y in test],[predict_cv_baseline(cv_model,x) for x,y in test]),
+                            'cv_baseline_noise_shift':scores([y for x,y in shifted],[predict_cv_baseline(cv_model,x) for x,y in shifted]),
+                            'cv_baseline_class_means_training_only':cv_model,
+                            'cv_baseline_method':'Nearest training-class mean of coefficient of variation alone; no holdout tuning; exact ties choose class 0.',
                             'model':model})
     return rows, {'experiments':experiments, 'interpretation':'Synthetic regular versus irregular RR patterns. Labels are generator settings, not diagnoses. No clinical inference.'}
 

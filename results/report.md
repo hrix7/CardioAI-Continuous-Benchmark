@@ -8,6 +8,41 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
 {
   "experiments": [
     {
+      "cv_baseline_class_means_training_only": [
+        0.028465321045141965,
+        0.1619375441582662
+      ],
+      "cv_baseline_in_distribution": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "confusion_matrix_rows_true": [
+          [
+            40,
+            0
+          ],
+          [
+            0,
+            40
+          ]
+        ],
+        "n_test_subjects": 80
+      },
+      "cv_baseline_method": "Nearest training-class mean of coefficient of variation alone; no holdout tuning; exact ties choose class 0.",
+      "cv_baseline_noise_shift": {
+        "accuracy": 0.575,
+        "balanced_accuracy": 0.575,
+        "confusion_matrix_rows_true": [
+          [
+            6,
+            34
+          ],
+          [
+            0,
+            40
+          ]
+        ],
+        "n_test_subjects": 80
+      },
       "in_distribution": {
         "accuracy": 1.0,
         "balanced_accuracy": 1.0,
@@ -90,6 +125,41 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
       "seed": 1729
     },
     {
+      "cv_baseline_class_means_training_only": [
+        0.027856955633989263,
+        0.14949525696964147
+      ],
+      "cv_baseline_in_distribution": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "confusion_matrix_rows_true": [
+          [
+            40,
+            0
+          ],
+          [
+            0,
+            40
+          ]
+        ],
+        "n_test_subjects": 80
+      },
+      "cv_baseline_method": "Nearest training-class mean of coefficient of variation alone; no holdout tuning; exact ties choose class 0.",
+      "cv_baseline_noise_shift": {
+        "accuracy": 0.525,
+        "balanced_accuracy": 0.525,
+        "confusion_matrix_rows_true": [
+          [
+            2,
+            38
+          ],
+          [
+            0,
+            40
+          ]
+        ],
+        "n_test_subjects": 80
+      },
       "in_distribution": {
         "accuracy": 1.0,
         "balanced_accuracy": 1.0,
@@ -172,6 +242,41 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
       "seed": 2718
     },
     {
+      "cv_baseline_class_means_training_only": [
+        0.028987905632829068,
+        0.1618663874955769
+      ],
+      "cv_baseline_in_distribution": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "confusion_matrix_rows_true": [
+          [
+            40,
+            0
+          ],
+          [
+            0,
+            40
+          ]
+        ],
+        "n_test_subjects": 80
+      },
+      "cv_baseline_method": "Nearest training-class mean of coefficient of variation alone; no holdout tuning; exact ties choose class 0.",
+      "cv_baseline_noise_shift": {
+        "accuracy": 0.55,
+        "balanced_accuracy": 0.55,
+        "confusion_matrix_rows_true": [
+          [
+            4,
+            36
+          ],
+          [
+            0,
+            40
+          ]
+        ],
+        "n_test_subjects": 80
+      },
       "in_distribution": {
         "accuracy": 1.0,
         "balanced_accuracy": 1.0,
@@ -258,4 +363,4 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
 }
 ```
 
-Result SHA-256: `b2d29986eff17326c6b1cfbc5bb3a994ded75dad14a34fbf2030f44fc74b67d8`
+Result SHA-256: `8af3eeccdb81632fb5dab9a7e878948c9708b3ac9b8ce249103dbabb582a2feb`

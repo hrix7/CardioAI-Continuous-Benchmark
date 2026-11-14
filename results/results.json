@@ -16,6 +16,41 @@
   "metrics": {
     "experiments": [
       {
+        "cv_baseline_class_means_training_only": [
+          0.028465321045141965,
+          0.1619375441582662
+        ],
+        "cv_baseline_in_distribution": {
+          "accuracy": 1.0,
+          "balanced_accuracy": 1.0,
+          "confusion_matrix_rows_true": [
+            [
+              40,
+              0
+            ],
+            [
+              0,
+              40
+            ]
+          ],
+          "n_test_subjects": 80
+        },
+        "cv_baseline_method": "Nearest training-class mean of coefficient of variation alone; no holdout tuning; exact ties choose class 0.",
+        "cv_baseline_noise_shift": {
+          "accuracy": 0.575,
+          "balanced_accuracy": 0.575,
+          "confusion_matrix_rows_true": [
+            [
+              6,
+              34
+            ],
+            [
+              0,
+              40
+            ]
+          ],
+          "n_test_subjects": 80
+        },
         "in_distribution": {
           "accuracy": 1.0,
           "balanced_accuracy": 1.0,
@@ -98,6 +133,41 @@
         "seed": 1729
       },
       {
+        "cv_baseline_class_means_training_only": [
+          0.027856955633989263,
+          0.14949525696964147
+        ],
+        "cv_baseline_in_distribution": {
+          "accuracy": 1.0,
+          "balanced_accuracy": 1.0,
+          "confusion_matrix_rows_true": [
+            [
+              40,
+              0
+            ],
+            [
+              0,
+              40
+            ]
+          ],
+          "n_test_subjects": 80
+        },
+        "cv_baseline_method": "Nearest training-class mean of coefficient of variation alone; no holdout tuning; exact ties choose class 0.",
+        "cv_baseline_noise_shift": {
+          "accuracy": 0.525,
+          "balanced_accuracy": 0.525,
+          "confusion_matrix_rows_true": [
+            [
+              2,
+              38
+            ],
+            [
+              0,
+              40
+            ]
+          ],
+          "n_test_subjects": 80
+        },
         "in_distribution": {
           "accuracy": 1.0,
           "balanced_accuracy": 1.0,
@@ -180,6 +250,41 @@
         "seed": 2718
       },
       {
+        "cv_baseline_class_means_training_only": [
+          0.028987905632829068,
+          0.1618663874955769
+        ],
+        "cv_baseline_in_distribution": {
+          "accuracy": 1.0,
+          "balanced_accuracy": 1.0,
+          "confusion_matrix_rows_true": [
+            [
+              40,
+              0
+            ],
+            [
+              0,
+              40
+            ]
+          ],
+          "n_test_subjects": 80
+        },
+        "cv_baseline_method": "Nearest training-class mean of coefficient of variation alone; no holdout tuning; exact ties choose class 0.",
+        "cv_baseline_noise_shift": {
+          "accuracy": 0.55,
+          "balanced_accuracy": 0.55,
+          "confusion_matrix_rows_true": [
+            [
+              4,
+              36
+            ],
+            [
+              0,
+              40
+            ]
+          ],
+          "n_test_subjects": 80
+        },
         "in_distribution": {
           "accuracy": 1.0,
           "balanced_accuracy": 1.0,
@@ -266,5 +371,5 @@
   },
   "project": "CardioAI-Continuous-Benchmark",
   "schema_version": 1,
-  "source_sha256": "c4225dc92a639e461d2f3518c45215b74993c25620dbc5f31b2bd59f0afba84c"
+  "source_sha256": "5523e874261957ee7302f16c5335f35a5892ba46d31e6be6d18c9b8ce1770abf"
 }

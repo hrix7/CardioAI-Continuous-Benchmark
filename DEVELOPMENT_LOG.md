@@ -24,3 +24,11 @@ Class-stratified subject bootstrap percentile intervals for balanced accuracy.
 Reports 400 class-stratified subject bootstrap replicates with nearest-rank 2.5/97.5 percentiles and fixed seed offsets, separately for each holdout cohort and fitted model. Resampling RNG is independent of data generation. Intervals condition on the fitted model and cohort; they exclude training and cross-seed uncertainty and may degenerate on all-correct or all-wrong cohorts. No test-set tuning.
 
 Validation: full unittest suite, pipeline regeneration and byte-for-byte verifier, diff review; GitHub validation outcome is tracked after push. No workflow/permission changes.
+
+## 2026-11-14
+
+Independent training-only CV-feature baseline on both holdout cohorts.
+
+Adds a one-feature comparator using nearest training-class mean of coefficient of variation. It ignores the second feature, chooses class 0 on exact ties, and never fits to holdouts. Class means and complete confusion/accuracy metrics are reported for both cohorts, alongside the primary two-feature standardized model. No improvement is assumed or fabricated.
+
+Validation before publication: full unittest suite, regenerated pipeline artifacts, byte-for-byte verification and diff review. Workflow configuration/permissions unchanged; existing policy tests pass. Hosted CI is followed after the tested source is published.
