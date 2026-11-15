@@ -61,3 +61,7 @@ Reports 400 class-stratified subject bootstrap replicates with nearest-rank 2.5/
 ## 2026-11-14 extension
 
 Adds a one-feature comparator using nearest training-class mean of coefficient of variation. It ignores the second feature, chooses class 0 on exact ties, and never fits to holdouts. Class means and complete confusion/accuracy metrics are reported for both cohorts, alongside the primary two-feature standardized model. No improvement is assumed or fabricated.
+
+## 2026-11-15 correctness extension
+
+Both model fits require finite feature pairs with integer binary labels and both training classes. Primary inference rejects nonfinite feature/model vectors and nonpositive standardization scales before distance evaluation. A single training subject in each class remains valid. No test-set fitting or threshold changes.

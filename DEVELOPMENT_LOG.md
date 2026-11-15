@@ -32,3 +32,11 @@ Independent training-only CV-feature baseline on both holdout cohorts.
 Adds a one-feature comparator using nearest training-class mean of coefficient of variation. It ignores the second feature, chooses class 0 on exact ties, and never fits to holdouts. Class means and complete confusion/accuracy metrics are reported for both cohorts, alongside the primary two-feature standardized model. No improvement is assumed or fabricated.
 
 Validation before publication: full unittest suite, regenerated pipeline artifacts, byte-for-byte verification and diff review. Workflow configuration/permissions unchanged; existing policy tests pass. Hosted CI is followed after the tested source is published.
+
+## 2026-11-15
+
+Validate both fitted baselines and primary-model inference inputs.
+
+Both model fits require finite feature pairs with integer binary labels and both training classes. Primary inference rejects nonfinite feature/model vectors and nonpositive standardization scales before distance evaluation. A single training subject in each class remains valid. No test-set fitting or threshold changes.
+
+Validation before publication: full unittest suite, pipeline regeneration/byte verifier, diff review and existing workflow-policy tests. Workflows and permissions unchanged. Hosted validation is followed after publication.

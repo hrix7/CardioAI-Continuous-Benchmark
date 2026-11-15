@@ -12,6 +12,10 @@ Class-stratified subject bootstrap intervals.
 
 Independent training-only CV-feature baseline on both holdout cohorts.
 
+## Completed — 2026-11-15
+
+Validate both fitted baselines and primary-model inference inputs.
+
 ## Next priorities
 
 1. Evaluate training-sampling uncertainty separately from existing conditional intervals.

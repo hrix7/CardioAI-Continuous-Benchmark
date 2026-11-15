@@ -39,7 +39,19 @@ def features(rr):
     return [statistics.stdev(rr) / mean(rr),
             math.sqrt(mean([(b-a)**2 for a,b in zip(rr, rr[1:])])) / mean(rr)]
 
+def finite_pair(x):
+    return isinstance(x,(list,tuple)) and len(x)==2 and all(not isinstance(v,bool) and isinstance(v,(int,float)) and math.isfinite(v) for v in x)
+
+def validate_training(samples):
+    if not isinstance(samples,(list,tuple)) or not samples:
+        raise ValueError('nonempty training samples required')
+    if any(not isinstance(row,(list,tuple)) or len(row)!=2 or not finite_pair(row[0]) or type(row[1]) is not int or row[1] not in (0,1) for row in samples):
+        raise ValueError('training samples require finite feature pairs and integer binary labels')
+    if {row[1] for row in samples}!={0,1}:
+        raise ValueError('both training classes required')
+
 def fit(samples):
+    validate_training(samples)
     # Nearest centroid baseline; fit standardization exclusively on training subjects.
     center = [mean([x[j] for x,y in samples]) for j in range(2)]
     scale = [statistics.stdev([x[j] for x,y in samples]) or 1 for j in range(2)]
@@ -49,6 +61,8 @@ def fit(samples):
 
 def predict(model, x):
     center, scale, centroids = model
+    if not finite_pair(x) or not finite_pair(center) or not finite_pair(scale) or any(v<=0 for v in scale) or len(centroids)!=2 or any(not finite_pair(c) for c in centroids):
+        raise ValueError('finite model and feature pairs with positive scales required')
     z = [(x[j]-center[j])/scale[j] for j in range(2)]
     return min(range(2), key=lambda k: sum((a-b)**2 for a,b in zip(z, centroids[k])))
 
@@ -78,8 +92,7 @@ def bootstrap_scores(truth, predicted, seed, replicates=400):
     return base
 
 def fit_cv_baseline(samples):
-    if not samples or {y for x,y in samples}!={0,1} or any(len(x)!=2 or any(not math.isfinite(v) for v in x) for x,y in samples):
-        raise ValueError('finite two-feature training samples from both classes required')
+    validate_training(samples)
     return [mean([x[0] for x,y in samples if y==k]) for k in (0,1)]
 
 def predict_cv_baseline(class_means,x):
