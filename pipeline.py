@@ -100,6 +100,23 @@ def predict_cv_baseline(class_means,x):
         raise ValueError('finite baseline means and two-feature vector required')
     return min((0,1),key=lambda k:abs(x[0]-class_means[k]))
 
+def training_resample_scores(train,test,shifted,seed,replicates=100):
+    validate_training(train)
+    if type(replicates) is not int or replicates<20:
+        raise ValueError('at least 20 training resamples required')
+    rng=random.Random(seed);strata=[[row for row in train if row[1]==k] for k in (0,1)]
+    values={'in_distribution':[],'noise_shift':[]}
+    for _ in range(replicates):
+        resampled=[rng.choice(group) for group in strata for _ in group]
+        model=fit(resampled)
+        for name,cohort in [('in_distribution',test),('noise_shift',shifted)]:
+            values[name].append(scores([y for x,y in cohort],[predict(model,x) for x,y in cohort])['balanced_accuracy'])
+    result=dict(replicates=replicates,seed=seed,method='Class-stratified training-subject bootstrap with refitted normalization and centroids; fixed holdout cohorts. Descriptive resampled-model sensitivity, not a calibrated confidence interval or cohort-sampling uncertainty; no model selection.')
+    for name,xs in values.items():
+        ordered=sorted(xs)
+        result[name]=dict(mean=mean(xs),minimum=min(xs),maximum=max(xs),q025=ordered[max(0,math.ceil(.025*replicates)-1)],q975=ordered[max(0,math.ceil(.975*replicates)-1)])
+    return result
+
 def run(config):
     rows = [['seed', 'split', 'subject', 'label', 'beat', 'rr_seconds']]
     experiments = []
@@ -123,6 +140,7 @@ def run(config):
                             'cv_baseline_noise_shift':scores([y for x,y in shifted],[predict_cv_baseline(cv_model,x) for x,y in shifted]),
                             'cv_baseline_class_means_training_only':cv_model,
                             'cv_baseline_method':'Nearest training-class mean of coefficient of variation alone; no holdout tuning; exact ties choose class 0.',
+                            'training_resample_sensitivity':training_resample_scores(train,test,shifted,seed+300000),
                             'model':model})
     return rows, {'experiments':experiments, 'interpretation':'Synthetic regular versus irregular RR patterns. Labels are generator settings, not diagnoses. No clinical inference.'}
 

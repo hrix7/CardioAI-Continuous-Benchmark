@@ -16,8 +16,12 @@ Independent training-only CV-feature baseline on both holdout cohorts.
 
 Validate both fitted baselines and primary-model inference inputs.
 
+## Completed — 2026-11-17
+
+Training resampling sensitivity.
+
 ## Next priorities
 
-1. Evaluate training-sampling uncertainty separately from existing conditional intervals.
-2. Add explicit model-mismatch generator scenarios.
+1. Add explicit model-mismatch generator scenarios.
+2. Compare training sensitivity across independently generated cohorts.
 3. Review licensed public ECG data and subject-disjoint validation.

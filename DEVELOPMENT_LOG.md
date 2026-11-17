@@ -40,3 +40,7 @@ Validate both fitted baselines and primary-model inference inputs.
 Both model fits require finite feature pairs with integer binary labels and both training classes. Primary inference rejects nonfinite feature/model vectors and nonpositive standardization scales before distance evaluation. A single training subject in each class remains valid. No test-set fitting or threshold changes.
 
 Validation before publication: full unittest suite, pipeline regeneration/byte verifier, diff review and existing workflow-policy tests. Workflows and permissions unchanged. Hosted validation is followed after publication.
+
+## 2026-11-17 — Training resampling sensitivity
+
+Completed the retained, unpublished implementation from November 16. Added class-stratified resampling of training subjects with normalization and centroids refit each replicate, evaluated on two fixed holdouts. This descriptive training-perturbation sensitivity is separate from the existing holdout-subject bootstrap intervals; its quantiles are not calibrated confidence limits. Tests verify repeatability, nonmutation and that only training rows enter refits. Full unit tests, pipeline regeneration and artifact verification run before publication; no workflow or permission changes.

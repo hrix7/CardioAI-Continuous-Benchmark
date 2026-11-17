@@ -122,7 +122,26 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
         ],
         "n_test_subjects": 80
       },
-      "seed": 1729
+      "seed": 1729,
+      "training_resample_sensitivity": {
+        "in_distribution": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "minimum": 1.0,
+          "q025": 1.0,
+          "q975": 1.0
+        },
+        "method": "Class-stratified training-subject bootstrap with refitted normalization and centroids; fixed holdout cohorts. Descriptive resampled-model sensitivity, not a calibrated confidence interval or cohort-sampling uncertainty; no model selection.",
+        "noise_shift": {
+          "maximum": 0.6375,
+          "mean": 0.600625,
+          "minimum": 0.5625,
+          "q025": 0.5625,
+          "q975": 0.6375
+        },
+        "replicates": 100,
+        "seed": 301729
+      }
     },
     {
       "cv_baseline_class_means_training_only": [
@@ -239,7 +258,26 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
         ],
         "n_test_subjects": 80
       },
-      "seed": 2718
+      "seed": 2718,
+      "training_resample_sensitivity": {
+        "in_distribution": {
+          "maximum": 1.0,
+          "mean": 0.996375,
+          "minimum": 0.9875,
+          "q025": 0.9875,
+          "q975": 1.0
+        },
+        "method": "Class-stratified training-subject bootstrap with refitted normalization and centroids; fixed holdout cohorts. Descriptive resampled-model sensitivity, not a calibrated confidence interval or cohort-sampling uncertainty; no model selection.",
+        "noise_shift": {
+          "maximum": 0.5375,
+          "mean": 0.5263749999999999,
+          "minimum": 0.5125,
+          "q025": 0.5125,
+          "q975": 0.5375
+        },
+        "replicates": 100,
+        "seed": 302718
+      }
     },
     {
       "cv_baseline_class_means_training_only": [
@@ -356,11 +394,30 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
         ],
         "n_test_subjects": 80
       },
-      "seed": 3141
+      "seed": 3141,
+      "training_resample_sensitivity": {
+        "in_distribution": {
+          "maximum": 1.0,
+          "mean": 1.0,
+          "minimum": 1.0,
+          "q025": 1.0,
+          "q975": 1.0
+        },
+        "method": "Class-stratified training-subject bootstrap with refitted normalization and centroids; fixed holdout cohorts. Descriptive resampled-model sensitivity, not a calibrated confidence interval or cohort-sampling uncertainty; no model selection.",
+        "noise_shift": {
+          "maximum": 0.6375,
+          "mean": 0.549875,
+          "minimum": 0.525,
+          "q025": 0.525,
+          "q975": 0.625
+        },
+        "replicates": 100,
+        "seed": 303141
+      }
     }
   ],
   "interpretation": "Synthetic regular versus irregular RR patterns. Labels are generator settings, not diagnoses. No clinical inference."
 }
 ```
 
-Result SHA-256: `4955d605c82d1f8a9c872933c288ca00d071254a627f5249ddf1965425837817`
+Result SHA-256: `5a4f6f4d3deb18fad7e190bfbbb6eaaf294d91d9ef795137ad01aea440f45c49`

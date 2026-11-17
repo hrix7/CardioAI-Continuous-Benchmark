@@ -130,7 +130,26 @@
           ],
           "n_test_subjects": 80
         },
-        "seed": 1729
+        "seed": 1729,
+        "training_resample_sensitivity": {
+          "in_distribution": {
+            "maximum": 1.0,
+            "mean": 1.0,
+            "minimum": 1.0,
+            "q025": 1.0,
+            "q975": 1.0
+          },
+          "method": "Class-stratified training-subject bootstrap with refitted normalization and centroids; fixed holdout cohorts. Descriptive resampled-model sensitivity, not a calibrated confidence interval or cohort-sampling uncertainty; no model selection.",
+          "noise_shift": {
+            "maximum": 0.6375,
+            "mean": 0.600625,
+            "minimum": 0.5625,
+            "q025": 0.5625,
+            "q975": 0.6375
+          },
+          "replicates": 100,
+          "seed": 301729
+        }
       },
       {
         "cv_baseline_class_means_training_only": [
@@ -247,7 +266,26 @@
           ],
           "n_test_subjects": 80
         },
-        "seed": 2718
+        "seed": 2718,
+        "training_resample_sensitivity": {
+          "in_distribution": {
+            "maximum": 1.0,
+            "mean": 0.996375,
+            "minimum": 0.9875,
+            "q025": 0.9875,
+            "q975": 1.0
+          },
+          "method": "Class-stratified training-subject bootstrap with refitted normalization and centroids; fixed holdout cohorts. Descriptive resampled-model sensitivity, not a calibrated confidence interval or cohort-sampling uncertainty; no model selection.",
+          "noise_shift": {
+            "maximum": 0.5375,
+            "mean": 0.5263749999999999,
+            "minimum": 0.5125,
+            "q025": 0.5125,
+            "q975": 0.5375
+          },
+          "replicates": 100,
+          "seed": 302718
+        }
       },
       {
         "cv_baseline_class_means_training_only": [
@@ -364,12 +402,31 @@
           ],
           "n_test_subjects": 80
         },
-        "seed": 3141
+        "seed": 3141,
+        "training_resample_sensitivity": {
+          "in_distribution": {
+            "maximum": 1.0,
+            "mean": 1.0,
+            "minimum": 1.0,
+            "q025": 1.0,
+            "q975": 1.0
+          },
+          "method": "Class-stratified training-subject bootstrap with refitted normalization and centroids; fixed holdout cohorts. Descriptive resampled-model sensitivity, not a calibrated confidence interval or cohort-sampling uncertainty; no model selection.",
+          "noise_shift": {
+            "maximum": 0.6375,
+            "mean": 0.549875,
+            "minimum": 0.525,
+            "q025": 0.525,
+            "q975": 0.625
+          },
+          "replicates": 100,
+          "seed": 303141
+        }
       }
     ],
     "interpretation": "Synthetic regular versus irregular RR patterns. Labels are generator settings, not diagnoses. No clinical inference."
   },
   "project": "CardioAI-Continuous-Benchmark",
   "schema_version": 1,
-  "source_sha256": "3435e2ee67965efd29a38086d684a53d05675a235ffc38528d5ece76d850acc9"
+  "source_sha256": "56805a363e22689a6841000a5d9e491758b1e99296b58d2ec9c383729e7bd000"
 }

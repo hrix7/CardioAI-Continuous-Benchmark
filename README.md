@@ -65,3 +65,7 @@ Adds a one-feature comparator using nearest training-class mean of coefficient o
 ## 2026-11-15 correctness extension
 
 Both model fits require finite feature pairs with integer binary labels and both training classes. Primary inference rejects nonfinite feature/model vectors and nonpositive standardization scales before distance evaluation. A single training subject in each class remains valid. No test-set fitting or threshold changes.
+
+## Training resampling sensitivity
+
+Added class-stratified resampling of training subjects with normalization and centroids refit each replicate, evaluated on two fixed holdouts. This descriptive training-perturbation sensitivity is separate from the existing holdout-subject bootstrap intervals; its quantiles are not calibrated confidence limits. Tests verify repeatability, nonmutation and that only training rows enter refits.
