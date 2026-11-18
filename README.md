@@ -69,3 +69,7 @@ Both model fits require finite feature pairs with integer binary labels and both
 ## Training resampling sensitivity
 
 Added class-stratified resampling of training subjects with normalization and centroids refit each replicate, evaluated on two fixed holdouts. This descriptive training-perturbation sensitivity is separate from the existing holdout-subject bootstrap intervals; its quantiles are not calibrated confidence limits. Tests verify repeatability, nonmutation and that only training rows enter refits.
+
+## Validate generator configuration before sampling
+
+Validate unique integer seeds, class-capable train/test sizes, minimum beat count and finite nonnegative shift before any rhythm generation. Tests spy on the generator to prove invalid configurations fail before sampling and exercise small odd-sized cohorts. No holdout tuning or new clinical interpretation.

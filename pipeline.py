@@ -117,7 +117,19 @@ def training_resample_scores(train,test,shifted,seed,replicates=100):
         result[name]=dict(mean=mean(xs),minimum=min(xs),maximum=max(xs),q025=ordered[max(0,math.ceil(.025*replicates)-1)],q975=ordered[max(0,math.ceil(.975*replicates)-1)])
     return result
 
+def validate_config(config):
+    if not isinstance(config,dict):raise ValueError('configuration object required')
+    seeds=config.get('seeds')
+    if not isinstance(seeds,list) or not seeds or any(type(x) is not int for x in seeds) or len(set(seeds))!=len(seeds):
+        raise ValueError('unique integer seeds required')
+    for key,minimum in [('train_subjects',2),('test_subjects',2),('beats',3)]:
+        if type(config.get(key)) is not int or config[key]<minimum:raise ValueError(key+' must be an integer >= '+str(minimum))
+    shift=config.get('noise_shift')
+    if isinstance(shift,bool) or not isinstance(shift,(int,float)) or not math.isfinite(shift) or shift<0:
+        raise ValueError('noise_shift must be finite and nonnegative')
+
 def run(config):
+    validate_config(config)
     rows = [['seed', 'split', 'subject', 'label', 'beat', 'rr_seconds']]
     experiments = []
     for seed in config['seeds']:

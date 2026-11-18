@@ -20,6 +20,10 @@ Validate both fitted baselines and primary-model inference inputs.
 
 Training resampling sensitivity.
 
+## Completed — 2026-11-18
+
+Validate generator configuration before sampling.
+
 ## Next priorities
 
 1. Add explicit model-mismatch generator scenarios.
