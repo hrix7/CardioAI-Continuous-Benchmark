@@ -123,6 +123,42 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
         "n_test_subjects": 80
       },
       "seed": 1729,
+      "sorted_order_probe": {
+        "max_abs_cv_difference": 0.0,
+        "mean_original_normalized_rmssd": 0.13014553037087703,
+        "mean_sorted_normalized_rmssd": 0.016380059841753045,
+        "method": "Pair each in-distribution holdout with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
+        "original": {
+          "accuracy": 1.0,
+          "balanced_accuracy": 1.0,
+          "confusion_matrix_rows_true": [
+            [
+              40,
+              0
+            ],
+            [
+              0,
+              40
+            ]
+          ],
+          "n_test_subjects": 80
+        },
+        "sorted_order": {
+          "accuracy": 0.675,
+          "balanced_accuracy": 0.675,
+          "confusion_matrix_rows_true": [
+            [
+              40,
+              0
+            ],
+            [
+              26,
+              14
+            ]
+          ],
+          "n_test_subjects": 80
+        }
+      },
       "training_resample_sensitivity": {
         "in_distribution": {
           "maximum": 1.0,
@@ -259,6 +295,42 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
         "n_test_subjects": 80
       },
       "seed": 2718,
+      "sorted_order_probe": {
+        "max_abs_cv_difference": 0.0,
+        "mean_original_normalized_rmssd": 0.1281472003875333,
+        "mean_sorted_normalized_rmssd": 0.015769811350558813,
+        "method": "Pair each in-distribution holdout with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
+        "original": {
+          "accuracy": 1.0,
+          "balanced_accuracy": 1.0,
+          "confusion_matrix_rows_true": [
+            [
+              40,
+              0
+            ],
+            [
+              0,
+              40
+            ]
+          ],
+          "n_test_subjects": 80
+        },
+        "sorted_order": {
+          "accuracy": 0.6875,
+          "balanced_accuracy": 0.6875,
+          "confusion_matrix_rows_true": [
+            [
+              40,
+              0
+            ],
+            [
+              25,
+              15
+            ]
+          ],
+          "n_test_subjects": 80
+        }
+      },
       "training_resample_sensitivity": {
         "in_distribution": {
           "maximum": 1.0,
@@ -395,6 +467,42 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
         "n_test_subjects": 80
       },
       "seed": 3141,
+      "sorted_order_probe": {
+        "max_abs_cv_difference": 0.0,
+        "mean_original_normalized_rmssd": 0.12719436906641476,
+        "mean_sorted_normalized_rmssd": 0.017445586368673497,
+        "method": "Pair each in-distribution holdout with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
+        "original": {
+          "accuracy": 1.0,
+          "balanced_accuracy": 1.0,
+          "confusion_matrix_rows_true": [
+            [
+              40,
+              0
+            ],
+            [
+              0,
+              40
+            ]
+          ],
+          "n_test_subjects": 80
+        },
+        "sorted_order": {
+          "accuracy": 0.675,
+          "balanced_accuracy": 0.675,
+          "confusion_matrix_rows_true": [
+            [
+              40,
+              0
+            ],
+            [
+              26,
+              14
+            ]
+          ],
+          "n_test_subjects": 80
+        }
+      },
       "training_resample_sensitivity": {
         "in_distribution": {
           "maximum": 1.0,
@@ -420,4 +528,4 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
 }
 ```
 
-Result SHA-256: `5c1d18a659a95bfdf90e598733b51b762727cdea2c517bed02dac5c99e844995`
+Result SHA-256: `137745b4c070f8fa0e4674b14f33227f47961b8dbf1e1624c59a05629a1ae0e6`

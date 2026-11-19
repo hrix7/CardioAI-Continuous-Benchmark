@@ -24,8 +24,12 @@ Training resampling sensitivity.
 
 Validate generator configuration before sampling.
 
+## Completed — 2026-11-19
+
+Paired temporal-order mismatch probe.
+
 ## Next priorities
 
-1. Add explicit model-mismatch generator scenarios.
-2. Compare training sensitivity across independently generated cohorts.
-3. Review licensed public ECG data and subject-disjoint validation.
+1. Compare sensitivity across independently generated cohorts and temporal perturbation families.
+2. Predeclare uncertainty for paired degradation without tuning on holdouts.
+3. Review licensed ECG data/annotation mappings and subject-disjoint validation.

@@ -73,3 +73,7 @@ Added class-stratified resampling of training subjects with normalization and ce
 ## Validate generator configuration before sampling
 
 Validate unique integer seeds, class-capable train/test sizes, minimum beat count and finite nonnegative shift before any rhythm generation. Tests spy on the generator to prove invalid configurations fail before sampling and exercise small odd-sized cohorts. No holdout tuning or new clinical interpretation.
+
+## Paired temporal-order mismatch probe
+
+Added a sorted-order copy of each in-distribution holdout RR sequence. Marginal values, sample counts and labels are retained while temporal structure changes. The already fitted training-only model is evaluated without refitting or threshold selection. This nonphysiological paired perturbation is not an additional independent cohort. Report normalized RMSSD changes, preserved CV and measured confusion results. Tests verify nonmutation, no refit and independent feature/score recomputation.

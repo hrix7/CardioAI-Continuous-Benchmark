@@ -131,6 +131,42 @@
           "n_test_subjects": 80
         },
         "seed": 1729,
+        "sorted_order_probe": {
+          "max_abs_cv_difference": 0.0,
+          "mean_original_normalized_rmssd": 0.13014553037087703,
+          "mean_sorted_normalized_rmssd": 0.016380059841753045,
+          "method": "Pair each in-distribution holdout with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
+          "original": {
+            "accuracy": 1.0,
+            "balanced_accuracy": 1.0,
+            "confusion_matrix_rows_true": [
+              [
+                40,
+                0
+              ],
+              [
+                0,
+                40
+              ]
+            ],
+            "n_test_subjects": 80
+          },
+          "sorted_order": {
+            "accuracy": 0.675,
+            "balanced_accuracy": 0.675,
+            "confusion_matrix_rows_true": [
+              [
+                40,
+                0
+              ],
+              [
+                26,
+                14
+              ]
+            ],
+            "n_test_subjects": 80
+          }
+        },
         "training_resample_sensitivity": {
           "in_distribution": {
             "maximum": 1.0,
@@ -267,6 +303,42 @@
           "n_test_subjects": 80
         },
         "seed": 2718,
+        "sorted_order_probe": {
+          "max_abs_cv_difference": 0.0,
+          "mean_original_normalized_rmssd": 0.1281472003875333,
+          "mean_sorted_normalized_rmssd": 0.015769811350558813,
+          "method": "Pair each in-distribution holdout with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
+          "original": {
+            "accuracy": 1.0,
+            "balanced_accuracy": 1.0,
+            "confusion_matrix_rows_true": [
+              [
+                40,
+                0
+              ],
+              [
+                0,
+                40
+              ]
+            ],
+            "n_test_subjects": 80
+          },
+          "sorted_order": {
+            "accuracy": 0.6875,
+            "balanced_accuracy": 0.6875,
+            "confusion_matrix_rows_true": [
+              [
+                40,
+                0
+              ],
+              [
+                25,
+                15
+              ]
+            ],
+            "n_test_subjects": 80
+          }
+        },
         "training_resample_sensitivity": {
           "in_distribution": {
             "maximum": 1.0,
@@ -403,6 +475,42 @@
           "n_test_subjects": 80
         },
         "seed": 3141,
+        "sorted_order_probe": {
+          "max_abs_cv_difference": 0.0,
+          "mean_original_normalized_rmssd": 0.12719436906641476,
+          "mean_sorted_normalized_rmssd": 0.017445586368673497,
+          "method": "Pair each in-distribution holdout with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
+          "original": {
+            "accuracy": 1.0,
+            "balanced_accuracy": 1.0,
+            "confusion_matrix_rows_true": [
+              [
+                40,
+                0
+              ],
+              [
+                0,
+                40
+              ]
+            ],
+            "n_test_subjects": 80
+          },
+          "sorted_order": {
+            "accuracy": 0.675,
+            "balanced_accuracy": 0.675,
+            "confusion_matrix_rows_true": [
+              [
+                40,
+                0
+              ],
+              [
+                26,
+                14
+              ]
+            ],
+            "n_test_subjects": 80
+          }
+        },
         "training_resample_sensitivity": {
           "in_distribution": {
             "maximum": 1.0,
@@ -428,5 +536,5 @@
   },
   "project": "CardioAI-Continuous-Benchmark",
   "schema_version": 1,
-  "source_sha256": "77037d654601d06f29ec4181a3a4187c07c1efce3b6fabf1503c1f96fcd835a9"
+  "source_sha256": "05040ad1a15978ddc7b74ab4feb754a296b6e936260da97ecadb7ec73270f22e"
 }

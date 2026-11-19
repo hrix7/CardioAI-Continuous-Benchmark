@@ -128,13 +128,20 @@ def validate_config(config):
     if isinstance(shift,bool) or not isinstance(shift,(int,float)) or not math.isfinite(shift) or shift<0:
         raise ValueError('noise_shift must be finite and nonnegative')
 
+def sorted_order_probe(model,rr_subjects):
+    # Sort the SAME holdout RR values to alter temporal structure, not marginals.
+    original=[(features(rr),label) for rr,label in rr_subjects]
+    ordered=[(features(sorted(rr)),label) for rr,label in rr_subjects]
+    truth=[y for x,y in original]
+    return dict(original=scores(truth,[predict(model,x) for x,y in original]),sorted_order=scores(truth,[predict(model,x) for x,y in ordered]),mean_original_normalized_rmssd=mean([x[1] for x,y in original]),mean_sorted_normalized_rmssd=mean([x[1] for x,y in ordered]),max_abs_cv_difference=max(abs(a[0][0]-b[0][0]) for a,b in zip(original,ordered)),method='Pair each in-distribution holdout with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.')
+
 def run(config):
     validate_config(config)
     rows = [['seed', 'split', 'subject', 'label', 'beat', 'rr_seconds']]
     experiments = []
     for seed in config['seeds']:
         rng = random.Random(seed)
-        train, test, shifted = [], [], []
+        train, test, shifted, test_rr = [], [], [], []
         for split, n, dest, shift in [('train',config['train_subjects'],train,0),
                                       ('test',config['test_subjects'],test,0),
                                       ('shifted_test',config['test_subjects'],shifted,config['noise_shift'])]:
@@ -143,6 +150,7 @@ def run(config):
                 rr = rhythm(rng,label,config['beats'],shift)
                 rows.extend([seed,split,f'{seed}-{split}-{subject}',label,i,format(x,'.12g')] for i,x in enumerate(rr))
                 dest.append((features(rr),label))
+                if split=='test':test_rr.append((rr,label))
         model = fit(train)
         cv_model = fit_cv_baseline(train)
         experiments.append({'seed':seed, 'in_distribution':bootstrap_scores([y for x,y in test],[predict(model,x) for x,y in test],seed+100000),
@@ -153,6 +161,7 @@ def run(config):
                             'cv_baseline_class_means_training_only':cv_model,
                             'cv_baseline_method':'Nearest training-class mean of coefficient of variation alone; no holdout tuning; exact ties choose class 0.',
                             'training_resample_sensitivity':training_resample_scores(train,test,shifted,seed+300000),
+                            'sorted_order_probe':sorted_order_probe(model,test_rr),
                             'model':model})
     return rows, {'experiments':experiments, 'interpretation':'Synthetic regular versus irregular RR patterns. Labels are generator settings, not diagnoses. No clinical inference.'}
 
