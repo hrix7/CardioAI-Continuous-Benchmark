@@ -128,12 +128,20 @@ def validate_config(config):
     if isinstance(shift,bool) or not isinstance(shift,(int,float)) or not math.isfinite(shift) or shift<0:
         raise ValueError('noise_shift must be finite and nonnegative')
 
-def sorted_order_probe(model,rr_subjects):
+def paired_bootstrap_delta(truth,original,perturbed,seed,replicates=400):
+    base=scores(truth,original);other=scores(truth,perturbed)
+    if type(replicates) is not int or replicates<40:raise ValueError('at least 40 paired resamples required')
+    groups=[[(int(a==y)-int(b==y)) for y,a,b in zip(truth,original,perturbed) if y==k] for k in (0,1)]
+    rng=random.Random(seed)
+    values=sorted(mean([mean([rng.choice(g) for _ in g]) for g in groups]) for _ in range(replicates))
+    return dict(original_minus_perturbed=base['balanced_accuracy']-other['balanced_accuracy'],lower=values[max(0,math.ceil(.025*replicates)-1)],upper=values[max(0,math.ceil(.975*replicates)-1)],replicates=replicates,seed=seed,method='Paired class-stratified subject bootstrap of original-minus-perturbed balanced accuracy; preserve each subject pair, fixed fitted model. Nearest-rank 95% percentile interval conditional on this holdout cohort; excludes training/population/model-selection uncertainty and may degenerate.')
+
+def sorted_order_probe(model,rr_subjects,bootstrap_seed=0):
     # Sort the SAME holdout RR values to alter temporal structure, not marginals.
     original=[(features(rr),label) for rr,label in rr_subjects]
     ordered=[(features(sorted(rr)),label) for rr,label in rr_subjects]
     truth=[y for x,y in original]
-    return dict(original=scores(truth,[predict(model,x) for x,y in original]),sorted_order=scores(truth,[predict(model,x) for x,y in ordered]),mean_original_normalized_rmssd=mean([x[1] for x,y in original]),mean_sorted_normalized_rmssd=mean([x[1] for x,y in ordered]),max_abs_cv_difference=max(abs(a[0][0]-b[0][0]) for a,b in zip(original,ordered)),method='Pair each in-distribution holdout with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.')
+    return dict(paired_delta=paired_bootstrap_delta(truth,[predict(model,x) for x,y in original],[predict(model,x) for x,y in ordered],bootstrap_seed),original=scores(truth,[predict(model,x) for x,y in original]),sorted_order=scores(truth,[predict(model,x) for x,y in ordered]),mean_original_normalized_rmssd=mean([x[1] for x,y in original]),mean_sorted_normalized_rmssd=mean([x[1] for x,y in ordered]),max_abs_cv_difference=max(abs(a[0][0]-b[0][0]) for a,b in zip(original,ordered)),method='Pair each in-distribution holdout with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.')
 
 def run(config):
     validate_config(config)
@@ -161,7 +169,7 @@ def run(config):
                             'cv_baseline_class_means_training_only':cv_model,
                             'cv_baseline_method':'Nearest training-class mean of coefficient of variation alone; no holdout tuning; exact ties choose class 0.',
                             'training_resample_sensitivity':training_resample_scores(train,test,shifted,seed+300000),
-                            'sorted_order_probe':sorted_order_probe(model,test_rr),
+                            'sorted_order_probe':sorted_order_probe(model,test_rr,seed+400000),
                             'model':model})
     return rows, {'experiments':experiments, 'interpretation':'Synthetic regular versus irregular RR patterns. Labels are generator settings, not diagnoses. No clinical inference.'}
 

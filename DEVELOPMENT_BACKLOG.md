@@ -28,8 +28,12 @@ Validate generator configuration before sampling.
 
 Paired temporal-order mismatch probe.
 
+## Completed — 2026-11-20
+
+Paired bootstrap of temporal-order effects.
+
 ## Next priorities
 
-1. Compare sensitivity across independently generated cohorts and temporal perturbation families.
-2. Predeclare uncertainty for paired degradation without tuning on holdouts.
-3. Review licensed ECG data/annotation mappings and subject-disjoint validation.
+1. Compare paired perturbation sensitivity across independent cohorts.
+2. Add predeclared temporal perturbation families without tuning on holdouts.
+3. Review public ECG annotation mappings and subject-disjoint validation.

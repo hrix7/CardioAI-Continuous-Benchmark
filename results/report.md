@@ -143,6 +143,14 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
           ],
           "n_test_subjects": 80
         },
+        "paired_delta": {
+          "lower": 0.25,
+          "method": "Paired class-stratified subject bootstrap of original-minus-perturbed balanced accuracy; preserve each subject pair, fixed fitted model. Nearest-rank 95% percentile interval conditional on this holdout cohort; excludes training/population/model-selection uncertainty and may degenerate.",
+          "original_minus_perturbed": 0.32499999999999996,
+          "replicates": 400,
+          "seed": 401729,
+          "upper": 0.3875
+        },
         "sorted_order": {
           "accuracy": 0.675,
           "balanced_accuracy": 0.675,
@@ -298,7 +306,7 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
       "sorted_order_probe": {
         "max_abs_cv_difference": 0.0,
         "mean_original_normalized_rmssd": 0.1281472003875333,
-        "mean_sorted_normalized_rmssd": 0.015769811350558816,
+        "mean_sorted_normalized_rmssd": 0.015769811350558813,
         "method": "Pair each in-distribution holdout with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
         "original": {
           "accuracy": 1.0,
@@ -314,6 +322,14 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
             ]
           ],
           "n_test_subjects": 80
+        },
+        "paired_delta": {
+          "lower": 0.2375,
+          "method": "Paired class-stratified subject bootstrap of original-minus-perturbed balanced accuracy; preserve each subject pair, fixed fitted model. Nearest-rank 95% percentile interval conditional on this holdout cohort; excludes training/population/model-selection uncertainty and may degenerate.",
+          "original_minus_perturbed": 0.3125,
+          "replicates": 400,
+          "seed": 402718,
+          "upper": 0.375
         },
         "sorted_order": {
           "accuracy": 0.6875,
@@ -487,6 +503,14 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
           ],
           "n_test_subjects": 80
         },
+        "paired_delta": {
+          "lower": 0.2375,
+          "method": "Paired class-stratified subject bootstrap of original-minus-perturbed balanced accuracy; preserve each subject pair, fixed fitted model. Nearest-rank 95% percentile interval conditional on this holdout cohort; excludes training/population/model-selection uncertainty and may degenerate.",
+          "original_minus_perturbed": 0.32499999999999996,
+          "replicates": 400,
+          "seed": 403141,
+          "upper": 0.4
+        },
         "sorted_order": {
           "accuracy": 0.675,
           "balanced_accuracy": 0.675,
@@ -528,4 +552,4 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
 }
 ```
 
-Result SHA-256: `748d006d1500bdc8d1d79bd8e020d4563e98ced631c293120ecc73f4e7d0681d`
+Result SHA-256: `bfb24bed73a2cbd3a4583249ed084a414db163d4d2a51cc095dae65764e33c07`

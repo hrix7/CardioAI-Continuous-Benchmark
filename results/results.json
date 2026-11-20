@@ -151,6 +151,14 @@
             ],
             "n_test_subjects": 80
           },
+          "paired_delta": {
+            "lower": 0.25,
+            "method": "Paired class-stratified subject bootstrap of original-minus-perturbed balanced accuracy; preserve each subject pair, fixed fitted model. Nearest-rank 95% percentile interval conditional on this holdout cohort; excludes training/population/model-selection uncertainty and may degenerate.",
+            "original_minus_perturbed": 0.32499999999999996,
+            "replicates": 400,
+            "seed": 401729,
+            "upper": 0.3875
+          },
           "sorted_order": {
             "accuracy": 0.675,
             "balanced_accuracy": 0.675,
@@ -306,7 +314,7 @@
         "sorted_order_probe": {
           "max_abs_cv_difference": 0.0,
           "mean_original_normalized_rmssd": 0.1281472003875333,
-          "mean_sorted_normalized_rmssd": 0.015769811350558816,
+          "mean_sorted_normalized_rmssd": 0.015769811350558813,
           "method": "Pair each in-distribution holdout with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
           "original": {
             "accuracy": 1.0,
@@ -322,6 +330,14 @@
               ]
             ],
             "n_test_subjects": 80
+          },
+          "paired_delta": {
+            "lower": 0.2375,
+            "method": "Paired class-stratified subject bootstrap of original-minus-perturbed balanced accuracy; preserve each subject pair, fixed fitted model. Nearest-rank 95% percentile interval conditional on this holdout cohort; excludes training/population/model-selection uncertainty and may degenerate.",
+            "original_minus_perturbed": 0.3125,
+            "replicates": 400,
+            "seed": 402718,
+            "upper": 0.375
           },
           "sorted_order": {
             "accuracy": 0.6875,
@@ -495,6 +511,14 @@
             ],
             "n_test_subjects": 80
           },
+          "paired_delta": {
+            "lower": 0.2375,
+            "method": "Paired class-stratified subject bootstrap of original-minus-perturbed balanced accuracy; preserve each subject pair, fixed fitted model. Nearest-rank 95% percentile interval conditional on this holdout cohort; excludes training/population/model-selection uncertainty and may degenerate.",
+            "original_minus_perturbed": 0.32499999999999996,
+            "replicates": 400,
+            "seed": 403141,
+            "upper": 0.4
+          },
           "sorted_order": {
             "accuracy": 0.675,
             "balanced_accuracy": 0.675,
@@ -536,5 +560,5 @@
   },
   "project": "CardioAI-Continuous-Benchmark",
   "schema_version": 1,
-  "source_sha256": "05040ad1a15978ddc7b74ab4feb754a296b6e936260da97ecadb7ec73270f22e"
+  "source_sha256": "1a8a75167f65ab500056d66be82e025246e0ab8abc57895e15dc7ba2d395877b"
 }

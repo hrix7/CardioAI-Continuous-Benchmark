@@ -52,3 +52,7 @@ Validate unique integer seeds, class-capable train/test sizes, minimum beat coun
 ## 2026-11-19 — Paired temporal-order mismatch probe
 
 Added a sorted-order copy of each in-distribution holdout RR sequence. Marginal values, sample counts and labels are retained while temporal structure changes. The already fitted training-only model is evaluated without refitting or threshold selection. This nonphysiological paired perturbation is not an additional independent cohort. Report normalized RMSSD changes, preserved CV and measured confusion results. Tests verify nonmutation, no refit and independent feature/score recomputation. Full suite: 27 tests passed; pipeline generation, independent --verify and diff checks passed before publication. No workflow or permission changes; workflow policy tests passed.
+
+## 2026-11-20 — Paired bootstrap of temporal-order effects
+
+Added class-stratified paired subject bootstrap of original-minus-sorted balanced accuracy using the fixed fitted model. Subject pairs remain together; nearest-rank percentile intervals are conditional on this cohort and omit training/population uncertainty. Tests cover identical pairs with errors, class imbalance, sign, reproducibility and invalid vectors. No holdout fitting or threshold selection. Full suite: 30 tests passed; pipeline generation, independent --verify and diff checks passed before publication. Workflow policy tests passed without workflow/permission changes.
