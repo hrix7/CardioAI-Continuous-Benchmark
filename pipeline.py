@@ -134,7 +134,8 @@ def paired_bootstrap_delta(truth,original,perturbed,seed,replicates=400):
     groups=[[(int(a==y)-int(b==y)) for y,a,b in zip(truth,original,perturbed) if y==k] for k in (0,1)]
     rng=random.Random(seed)
     values=sorted(mean([mean([rng.choice(g) for _ in g]) for g in groups]) for _ in range(replicates))
-    return dict(original_minus_perturbed=base['balanced_accuracy']-other['balanced_accuracy'],lower=values[max(0,math.ceil(.025*replicates)-1)],upper=values[max(0,math.ceil(.975*replicates)-1)],replicates=replicates,seed=seed,method='Paired class-stratified subject bootstrap of original-minus-perturbed balanced accuracy; preserve each subject pair, fixed fitted model. Nearest-rank 95% percentile interval conditional on this holdout cohort; excludes training/population/model-selection uncertainty and may degenerate.')
+    pairing=[dict(label=k,subjects=len(g),original_only_correct=g.count(1),perturbed_only_correct=g.count(-1),equal_correctness=g.count(0)) for k,g in enumerate(groups)]
+    return dict(pairing_by_class=pairing,original_minus_perturbed=base['balanced_accuracy']-other['balanced_accuracy'],lower=values[max(0,math.ceil(.025*replicates)-1)],upper=values[max(0,math.ceil(.975*replicates)-1)],replicates=replicates,seed=seed,method='Paired class-stratified subject bootstrap of original-minus-perturbed balanced accuracy; preserve each subject pair, fixed fitted model. Nearest-rank 95% percentile interval conditional on this holdout cohort; excludes training/population/model-selection uncertainty and may degenerate.')
 
 def sorted_order_probe(model,rr_subjects,bootstrap_seed=0):
     # Sort the SAME holdout RR values to alter temporal structure, not marginals.

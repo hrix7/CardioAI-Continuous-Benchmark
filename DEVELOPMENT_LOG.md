@@ -56,3 +56,9 @@ Added a sorted-order copy of each in-distribution holdout RR sequence. Marginal 
 ## 2026-11-20 — Paired bootstrap of temporal-order effects
 
 Added class-stratified paired subject bootstrap of original-minus-sorted balanced accuracy using the fixed fitted model. Subject pairs remain together; nearest-rank percentile intervals are conditional on this cohort and omit training/population uncertainty. Tests cover identical pairs with errors, class imbalance, sign, reproducibility and invalid vectors. No holdout fitting or threshold selection. Full suite: 30 tests passed; pipeline generation, independent --verify and diff checks passed before publication. Workflow policy tests passed without workflow/permission changes.
+
+## 2026-11-21 — Expose paired bootstrap discordances
+
+Export per-class subject counts and original-only/perturbed-only/equal correctness counts. Independently reconstruct the balanced-accuracy delta from these discordances. Fixed fitted model, paired subjects and bootstrap RNG unchanged; conditional uncertainty remains nonclinical.
+
+Validation: full existing suite plus new tests (31 passed), pipeline generation and independent --verify, scoped diff review and git diff --check before publication. Hosted CI is followed after pushing. Existing read-only validation/publisher workflows unchanged; workflow-policy tests included.

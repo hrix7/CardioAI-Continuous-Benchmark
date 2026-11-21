@@ -37,3 +37,7 @@ Paired bootstrap of temporal-order effects.
 1. Compare paired perturbation sensitivity across independent cohorts.
 2. Add predeclared temporal perturbation families without tuning on holdouts.
 3. Review public ECG annotation mappings and subject-disjoint validation.
+
+## Completed — 2026-11-21
+
+Expose paired bootstrap discordances.

@@ -147,6 +147,22 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
           "lower": 0.25,
           "method": "Paired class-stratified subject bootstrap of original-minus-perturbed balanced accuracy; preserve each subject pair, fixed fitted model. Nearest-rank 95% percentile interval conditional on this holdout cohort; excludes training/population/model-selection uncertainty and may degenerate.",
           "original_minus_perturbed": 0.32499999999999996,
+          "pairing_by_class": [
+            {
+              "equal_correctness": 40,
+              "label": 0,
+              "original_only_correct": 0,
+              "perturbed_only_correct": 0,
+              "subjects": 40
+            },
+            {
+              "equal_correctness": 14,
+              "label": 1,
+              "original_only_correct": 26,
+              "perturbed_only_correct": 0,
+              "subjects": 40
+            }
+          ],
           "replicates": 400,
           "seed": 401729,
           "upper": 0.3875
@@ -306,7 +322,7 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
       "sorted_order_probe": {
         "max_abs_cv_difference": 0.0,
         "mean_original_normalized_rmssd": 0.1281472003875333,
-        "mean_sorted_normalized_rmssd": 0.015769811350558816,
+        "mean_sorted_normalized_rmssd": 0.015769811350558813,
         "method": "Pair each in-distribution holdout with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
         "original": {
           "accuracy": 1.0,
@@ -327,6 +343,22 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
           "lower": 0.2375,
           "method": "Paired class-stratified subject bootstrap of original-minus-perturbed balanced accuracy; preserve each subject pair, fixed fitted model. Nearest-rank 95% percentile interval conditional on this holdout cohort; excludes training/population/model-selection uncertainty and may degenerate.",
           "original_minus_perturbed": 0.3125,
+          "pairing_by_class": [
+            {
+              "equal_correctness": 40,
+              "label": 0,
+              "original_only_correct": 0,
+              "perturbed_only_correct": 0,
+              "subjects": 40
+            },
+            {
+              "equal_correctness": 15,
+              "label": 1,
+              "original_only_correct": 25,
+              "perturbed_only_correct": 0,
+              "subjects": 40
+            }
+          ],
           "replicates": 400,
           "seed": 402718,
           "upper": 0.375
@@ -507,6 +539,22 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
           "lower": 0.2375,
           "method": "Paired class-stratified subject bootstrap of original-minus-perturbed balanced accuracy; preserve each subject pair, fixed fitted model. Nearest-rank 95% percentile interval conditional on this holdout cohort; excludes training/population/model-selection uncertainty and may degenerate.",
           "original_minus_perturbed": 0.32499999999999996,
+          "pairing_by_class": [
+            {
+              "equal_correctness": 40,
+              "label": 0,
+              "original_only_correct": 0,
+              "perturbed_only_correct": 0,
+              "subjects": 40
+            },
+            {
+              "equal_correctness": 14,
+              "label": 1,
+              "original_only_correct": 26,
+              "perturbed_only_correct": 0,
+              "subjects": 40
+            }
+          ],
           "replicates": 400,
           "seed": 403141,
           "upper": 0.4
@@ -552,4 +600,4 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
 }
 ```
 
-Result SHA-256: `ccb2c25ff6e16582c555fcbc443b89c546ca0ef04806afe46442588e9d9237c4`
+Result SHA-256: `cb78f2e58ca87eb7fbcc10a8ffb448752cc8d220dd3f756de7ff8849c2cd2cc7`
