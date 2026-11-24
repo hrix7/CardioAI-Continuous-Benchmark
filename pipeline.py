@@ -137,12 +137,13 @@ def paired_bootstrap_delta(truth,original,perturbed,seed,replicates=400):
     pairing=[dict(label=k,subjects=len(g),original_only_correct=g.count(1),perturbed_only_correct=g.count(-1),equal_correctness=g.count(0)) for k,g in enumerate(groups)]
     return dict(pairing_by_class=pairing,original_minus_perturbed=base['balanced_accuracy']-other['balanced_accuracy'],lower=values[max(0,math.ceil(.025*replicates)-1)],upper=values[max(0,math.ceil(.975*replicates)-1)],replicates=replicates,seed=seed,method='Paired class-stratified subject bootstrap of original-minus-perturbed balanced accuracy; preserve each subject pair, fixed fitted model. Nearest-rank 95% percentile interval conditional on this holdout cohort; excludes training/population/model-selection uncertainty and may degenerate.')
 
-def sorted_order_probe(model,rr_subjects,bootstrap_seed=0):
+def sorted_order_probe(model,rr_subjects,bootstrap_seed=0,cohort="in_distribution"):
+    if cohort not in ("in_distribution","noise_shift"):raise ValueError("explicit supported cohort required")
     # Sort the SAME holdout RR values to alter temporal structure, not marginals.
     original=[(features(rr),label) for rr,label in rr_subjects]
     ordered=[(features(sorted(rr)),label) for rr,label in rr_subjects]
     truth=[y for x,y in original]
-    return dict(paired_delta=paired_bootstrap_delta(truth,[predict(model,x) for x,y in original],[predict(model,x) for x,y in ordered],bootstrap_seed),original=scores(truth,[predict(model,x) for x,y in original]),sorted_order=scores(truth,[predict(model,x) for x,y in ordered]),mean_original_normalized_rmssd=mean([x[1] for x,y in original]),mean_sorted_normalized_rmssd=mean([x[1] for x,y in ordered]),max_abs_cv_difference=max(abs(a[0][0]-b[0][0]) for a,b in zip(original,ordered)),method='Pair each in-distribution holdout with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.')
+    return dict(cohort=cohort,paired_delta=paired_bootstrap_delta(truth,[predict(model,x) for x,y in original],[predict(model,x) for x,y in ordered],bootstrap_seed),original=scores(truth,[predict(model,x) for x,y in original]),sorted_order=scores(truth,[predict(model,x) for x,y in ordered]),mean_original_normalized_rmssd=mean([x[1] for x,y in original]),mean_sorted_normalized_rmssd=mean([x[1] for x,y in ordered]),max_abs_cv_difference=max(abs(a[0][0]-b[0][0]) for a,b in zip(original,ordered)),method='Pair each subject of the named holdout cohort with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.')
 
 def run(config):
     validate_config(config)
@@ -150,7 +151,7 @@ def run(config):
     experiments = []
     for seed in config['seeds']:
         rng = random.Random(seed)
-        train, test, shifted, test_rr = [], [], [], []
+        train, test, shifted, test_rr, shifted_rr = [], [], [], [], []
         for split, n, dest, shift in [('train',config['train_subjects'],train,0),
                                       ('test',config['test_subjects'],test,0),
                                       ('shifted_test',config['test_subjects'],shifted,config['noise_shift'])]:
@@ -160,6 +161,7 @@ def run(config):
                 rows.extend([seed,split,f'{seed}-{split}-{subject}',label,i,format(x,'.12g')] for i,x in enumerate(rr))
                 dest.append((features(rr),label))
                 if split=='test':test_rr.append((rr,label))
+                if split=='shifted_test':shifted_rr.append((rr,label))
         model = fit(train)
         cv_model = fit_cv_baseline(train)
         experiments.append({'seed':seed, 'in_distribution':bootstrap_scores([y for x,y in test],[predict(model,x) for x,y in test],seed+100000),
@@ -171,6 +173,7 @@ def run(config):
                             'cv_baseline_method':'Nearest training-class mean of coefficient of variation alone; no holdout tuning; exact ties choose class 0.',
                             'training_resample_sensitivity':training_resample_scores(train,test,shifted,seed+300000),
                             'sorted_order_probe':sorted_order_probe(model,test_rr,seed+400000),
+                            'noise_shift_sorted_order_probe':sorted_order_probe(model,shifted_rr,seed+500000,'noise_shift'),
                             'model':model})
     return rows, {'experiments':experiments, 'interpretation':'Synthetic regular versus irregular RR patterns. Labels are generator settings, not diagnoses. No clinical inference.'}
 

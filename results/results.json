@@ -130,12 +130,74 @@
           ],
           "n_test_subjects": 80
         },
+        "noise_shift_sorted_order_probe": {
+          "cohort": "noise_shift",
+          "max_abs_cv_difference": 0.0,
+          "mean_original_normalized_rmssd": 0.2583230424652658,
+          "mean_sorted_normalized_rmssd": 0.033836264340113796,
+          "method": "Pair each subject of the named holdout cohort with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
+          "original": {
+            "accuracy": 0.6,
+            "balanced_accuracy": 0.6,
+            "confusion_matrix_rows_true": [
+              [
+                8,
+                32
+              ],
+              [
+                0,
+                40
+              ]
+            ],
+            "n_test_subjects": 80
+          },
+          "paired_delta": {
+            "lower": -0.45,
+            "method": "Paired class-stratified subject bootstrap of original-minus-perturbed balanced accuracy; preserve each subject pair, fixed fitted model. Nearest-rank 95% percentile interval conditional on this holdout cohort; excludes training/population/model-selection uncertainty and may degenerate.",
+            "original_minus_perturbed": -0.38750000000000007,
+            "pairing_by_class": [
+              {
+                "equal_correctness": 9,
+                "label": 0,
+                "original_only_correct": 0,
+                "perturbed_only_correct": 31,
+                "subjects": 40
+              },
+              {
+                "equal_correctness": 40,
+                "label": 1,
+                "original_only_correct": 0,
+                "perturbed_only_correct": 0,
+                "subjects": 40
+              }
+            ],
+            "replicates": 400,
+            "seed": 501729,
+            "upper": -0.325
+          },
+          "sorted_order": {
+            "accuracy": 0.9875,
+            "balanced_accuracy": 0.9875,
+            "confusion_matrix_rows_true": [
+              [
+                39,
+                1
+              ],
+              [
+                0,
+                40
+              ]
+            ],
+            "n_test_subjects": 80
+          }
+        },
         "seed": 1729,
         "sorted_order_probe": {
+          "cohort": "in_distribution",
           "max_abs_cv_difference": 0.0,
           "mean_original_normalized_rmssd": 0.13014553037087703,
           "mean_sorted_normalized_rmssd": 0.016380059841753045,
-          "method": "Pair each in-distribution holdout with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
+          "method": "Pair each subject of the named holdout cohort with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
           "original": {
             "accuracy": 1.0,
             "balanced_accuracy": 1.0,
@@ -326,12 +388,74 @@
           ],
           "n_test_subjects": 80
         },
+        "noise_shift_sorted_order_probe": {
+          "cohort": "noise_shift",
+          "max_abs_cv_difference": 0.0,
+          "mean_original_normalized_rmssd": 0.26229690991520754,
+          "mean_sorted_normalized_rmssd": 0.03329839006919572,
+          "method": "Pair each subject of the named holdout cohort with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
+          "original": {
+            "accuracy": 0.5375,
+            "balanced_accuracy": 0.5375,
+            "confusion_matrix_rows_true": [
+              [
+                3,
+                37
+              ],
+              [
+                0,
+                40
+              ]
+            ],
+            "n_test_subjects": 80
+          },
+          "paired_delta": {
+            "lower": -0.475,
+            "method": "Paired class-stratified subject bootstrap of original-minus-perturbed balanced accuracy; preserve each subject pair, fixed fitted model. Nearest-rank 95% percentile interval conditional on this holdout cohort; excludes training/population/model-selection uncertainty and may degenerate.",
+            "original_minus_perturbed": -0.4375,
+            "pairing_by_class": [
+              {
+                "equal_correctness": 5,
+                "label": 0,
+                "original_only_correct": 0,
+                "perturbed_only_correct": 35,
+                "subjects": 40
+              },
+              {
+                "equal_correctness": 40,
+                "label": 1,
+                "original_only_correct": 0,
+                "perturbed_only_correct": 0,
+                "subjects": 40
+              }
+            ],
+            "replicates": 400,
+            "seed": 502718,
+            "upper": -0.3875
+          },
+          "sorted_order": {
+            "accuracy": 0.975,
+            "balanced_accuracy": 0.975,
+            "confusion_matrix_rows_true": [
+              [
+                38,
+                2
+              ],
+              [
+                0,
+                40
+              ]
+            ],
+            "n_test_subjects": 80
+          }
+        },
         "seed": 2718,
         "sorted_order_probe": {
+          "cohort": "in_distribution",
           "max_abs_cv_difference": 0.0,
           "mean_original_normalized_rmssd": 0.1281472003875333,
-          "mean_sorted_normalized_rmssd": 0.015769811350558816,
-          "method": "Pair each in-distribution holdout with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
+          "mean_sorted_normalized_rmssd": 0.015769811350558813,
+          "method": "Pair each subject of the named holdout cohort with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
           "original": {
             "accuracy": 1.0,
             "balanced_accuracy": 1.0,
@@ -522,12 +646,74 @@
           ],
           "n_test_subjects": 80
         },
+        "noise_shift_sorted_order_probe": {
+          "cohort": "noise_shift",
+          "max_abs_cv_difference": 0.0,
+          "mean_original_normalized_rmssd": 0.25899128731237203,
+          "mean_sorted_normalized_rmssd": 0.03222416923251538,
+          "method": "Pair each subject of the named holdout cohort with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
+          "original": {
+            "accuracy": 0.5375,
+            "balanced_accuracy": 0.5375,
+            "confusion_matrix_rows_true": [
+              [
+                3,
+                37
+              ],
+              [
+                0,
+                40
+              ]
+            ],
+            "n_test_subjects": 80
+          },
+          "paired_delta": {
+            "lower": -0.4875,
+            "method": "Paired class-stratified subject bootstrap of original-minus-perturbed balanced accuracy; preserve each subject pair, fixed fitted model. Nearest-rank 95% percentile interval conditional on this holdout cohort; excludes training/population/model-selection uncertainty and may degenerate.",
+            "original_minus_perturbed": -0.45000000000000007,
+            "pairing_by_class": [
+              {
+                "equal_correctness": 3,
+                "label": 0,
+                "original_only_correct": 0,
+                "perturbed_only_correct": 37,
+                "subjects": 40
+              },
+              {
+                "equal_correctness": 39,
+                "label": 1,
+                "original_only_correct": 1,
+                "perturbed_only_correct": 0,
+                "subjects": 40
+              }
+            ],
+            "replicates": 400,
+            "seed": 503141,
+            "upper": -0.39999999999999997
+          },
+          "sorted_order": {
+            "accuracy": 0.9875,
+            "balanced_accuracy": 0.9875,
+            "confusion_matrix_rows_true": [
+              [
+                40,
+                0
+              ],
+              [
+                1,
+                39
+              ]
+            ],
+            "n_test_subjects": 80
+          }
+        },
         "seed": 3141,
         "sorted_order_probe": {
+          "cohort": "in_distribution",
           "max_abs_cv_difference": 0.0,
           "mean_original_normalized_rmssd": 0.12719436906641476,
           "mean_sorted_normalized_rmssd": 0.017445586368673497,
-          "method": "Pair each in-distribution holdout with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
+          "method": "Pair each subject of the named holdout cohort with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
           "original": {
             "accuracy": 1.0,
             "balanced_accuracy": 1.0,
@@ -608,5 +794,5 @@
   },
   "project": "CardioAI-Continuous-Benchmark",
   "schema_version": 1,
-  "source_sha256": "91cf2dae3743914f923ba26750503a54cc73b92857bf1b19502c54188c78989a"
+  "source_sha256": "0b1e073c0d50fe6d33fde16a4b55bb485d51f26bc43f644113628966f4a5238f"
 }

@@ -62,3 +62,9 @@ Added class-stratified paired subject bootstrap of original-minus-sorted balance
 Export per-class subject counts and original-only/perturbed-only/equal correctness counts. Independently reconstruct the balanced-accuracy delta from these discordances. Fixed fitted model, paired subjects and bootstrap RNG unchanged; conditional uncertainty remains nonclinical.
 
 Validation: full existing suite plus new tests (31 passed), pipeline generation and independent --verify, scoped diff review and git diff --check before publication. Hosted CI is followed after pushing. Existing read-only validation/publisher workflows unchanged; workflow-policy tests included.
+
+## 2026-11-24 — Temporal-order mismatch on shifted holdouts
+
+Retain RR sequences for the existing independent shifted cohort and evaluate paired sorting with the same training-fitted model. Add explicit cohort identity and a separate bootstrap seed; preserve original generator rows, subjects and marginal values. Test exact original scores, reproducibility, unsupported cohort rejection and no holdout refit. Each paired interval is conditional on its own cohort; cohorts are not pooled.
+
+Validation before publication: 33 full-suite tests passed, pipeline regeneration and independent --verify passed, scoped diff/checksum review and git diff --check passed. Workflow policy tests included; workflows and permissions unchanged. Hosted validation followed after pushing.

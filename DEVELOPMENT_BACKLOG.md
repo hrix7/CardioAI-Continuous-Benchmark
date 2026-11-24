@@ -41,3 +41,12 @@ Paired bootstrap of temporal-order effects.
 ## Completed — 2026-11-21
 
 Expose paired bootstrap discordances.
+
+## Completed — 2026-11-24
+
+Temporal-order mismatch on shifted holdouts.
+
+## Current ordered next steps
+
+1. Predeclare reversal/time-permutation controls and compare separate cohorts without test-set tuning.
+2. Review public-data terms, exact release/checksums and subject mappings before ingestion; keep synthetic and public-data evaluation distinct.

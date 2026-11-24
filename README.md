@@ -85,3 +85,7 @@ Added class-stratified paired subject bootstrap of original-minus-sorted balance
 ### November 21 development
 
 Export per-class subject counts and original-only/perturbed-only/equal correctness counts. Independently reconstruct the balanced-accuracy delta from these discordances. Fixed fitted model, paired subjects and bootstrap RNG unchanged; conditional uncertainty remains nonclinical.
+
+### November 24 development
+
+Retain RR sequences for the existing independent shifted cohort and evaluate paired sorting with the same training-fitted model. Add explicit cohort identity and a separate bootstrap seed; preserve original generator rows, subjects and marginal values. Test exact original scores, reproducibility, unsupported cohort rejection and no holdout refit. Each paired interval is conditional on its own cohort; cohorts are not pooled.
