@@ -446,7 +446,7 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
         "cohort": "in_distribution",
         "max_abs_cv_difference": 0.0,
         "mean_original_normalized_rmssd": 0.1281472003875333,
-        "mean_sorted_normalized_rmssd": 0.015769811350558813,
+        "mean_sorted_normalized_rmssd": 0.015769811350558816,
         "method": "Pair each subject of the named holdout cohort with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
         "original": {
           "accuracy": 1.0,
@@ -786,4 +786,4 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
 }
 ```
 
-Result SHA-256: `7ad935acc532aadea93e17389962daab68ac4ea672aa44713e3a8556366276d7`
+Result SHA-256: `3f66fa9d20105fbfe47df30c5a030a47250a4bee04b6bc02a469224a3790c397`
