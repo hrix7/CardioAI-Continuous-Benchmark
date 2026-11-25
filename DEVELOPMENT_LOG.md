@@ -68,3 +68,9 @@ Validation: full existing suite plus new tests (31 passed), pipeline generation 
 Retain RR sequences for the existing independent shifted cohort and evaluate paired sorting with the same training-fitted model. Add explicit cohort identity and a separate bootstrap seed; preserve original generator rows, subjects and marginal values. Test exact original scores, reproducibility, unsupported cohort rejection and no holdout refit. Each paired interval is conditional on its own cohort; cohorts are not pooled.
 
 Validation before publication: 33 full-suite tests passed, pipeline regeneration and independent --verify passed, scoped diff/checksum review and git diff --check passed. Workflow policy tests included; workflows and permissions unchanged. Hosted validation followed after pushing.
+
+## 2026-11-25 — Reversal negative controls
+
+Reverse RR sequences within each existing holdout cohort as a predeclared negative control. CV and squared adjacent differences are mathematically invariant to reversal; report actual feature differences, confusion scores and prediction disagreements rather than forcing zero. No refit or tuning; sorting remains a distinct perturbation. Hand-sequence and deliberately mocked disagreement tests verify behavior.
+
+Pre-publication validation: 35 full-suite tests passed; pipeline generation and independent --verify, scoped diff and checksum review, git diff --check passed. Existing workflow policy tests included; no permission/workflow changes. Hosted CI followed after publication.

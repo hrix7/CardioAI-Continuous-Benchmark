@@ -183,6 +183,78 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
           "n_test_subjects": 80
         }
       },
+      "reversal_controls": {
+        "in_distribution": {
+          "max_abs_feature_difference": 0.0,
+          "method": "Predeclared negative control: reverse each same-subject RR sequence; CV and squared adjacent differences are mathematically invariant to reversal (floating-point summation may differ). Fixed training model, no refit or tuning. Sorting is a distinct nonphysiological perturbation; neither is clinical validation.",
+          "original": {
+            "accuracy": 1.0,
+            "balanced_accuracy": 1.0,
+            "confusion_matrix_rows_true": [
+              [
+                40,
+                0
+              ],
+              [
+                0,
+                40
+              ]
+            ],
+            "n_test_subjects": 80
+          },
+          "prediction_disagreements": 0,
+          "reversed": {
+            "accuracy": 1.0,
+            "balanced_accuracy": 1.0,
+            "confusion_matrix_rows_true": [
+              [
+                40,
+                0
+              ],
+              [
+                0,
+                40
+              ]
+            ],
+            "n_test_subjects": 80
+          }
+        },
+        "noise_shift": {
+          "max_abs_feature_difference": 0.0,
+          "method": "Predeclared negative control: reverse each same-subject RR sequence; CV and squared adjacent differences are mathematically invariant to reversal (floating-point summation may differ). Fixed training model, no refit or tuning. Sorting is a distinct nonphysiological perturbation; neither is clinical validation.",
+          "original": {
+            "accuracy": 0.6,
+            "balanced_accuracy": 0.6,
+            "confusion_matrix_rows_true": [
+              [
+                8,
+                32
+              ],
+              [
+                0,
+                40
+              ]
+            ],
+            "n_test_subjects": 80
+          },
+          "prediction_disagreements": 0,
+          "reversed": {
+            "accuracy": 0.6,
+            "balanced_accuracy": 0.6,
+            "confusion_matrix_rows_true": [
+              [
+                8,
+                32
+              ],
+              [
+                0,
+                40
+              ]
+            ],
+            "n_test_subjects": 80
+          }
+        }
+      },
       "seed": 1729,
       "sorted_order_probe": {
         "cohort": "in_distribution",
@@ -441,12 +513,84 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
           "n_test_subjects": 80
         }
       },
+      "reversal_controls": {
+        "in_distribution": {
+          "max_abs_feature_difference": 0.0,
+          "method": "Predeclared negative control: reverse each same-subject RR sequence; CV and squared adjacent differences are mathematically invariant to reversal (floating-point summation may differ). Fixed training model, no refit or tuning. Sorting is a distinct nonphysiological perturbation; neither is clinical validation.",
+          "original": {
+            "accuracy": 1.0,
+            "balanced_accuracy": 1.0,
+            "confusion_matrix_rows_true": [
+              [
+                40,
+                0
+              ],
+              [
+                0,
+                40
+              ]
+            ],
+            "n_test_subjects": 80
+          },
+          "prediction_disagreements": 0,
+          "reversed": {
+            "accuracy": 1.0,
+            "balanced_accuracy": 1.0,
+            "confusion_matrix_rows_true": [
+              [
+                40,
+                0
+              ],
+              [
+                0,
+                40
+              ]
+            ],
+            "n_test_subjects": 80
+          }
+        },
+        "noise_shift": {
+          "max_abs_feature_difference": 0.0,
+          "method": "Predeclared negative control: reverse each same-subject RR sequence; CV and squared adjacent differences are mathematically invariant to reversal (floating-point summation may differ). Fixed training model, no refit or tuning. Sorting is a distinct nonphysiological perturbation; neither is clinical validation.",
+          "original": {
+            "accuracy": 0.5375,
+            "balanced_accuracy": 0.5375,
+            "confusion_matrix_rows_true": [
+              [
+                3,
+                37
+              ],
+              [
+                0,
+                40
+              ]
+            ],
+            "n_test_subjects": 80
+          },
+          "prediction_disagreements": 0,
+          "reversed": {
+            "accuracy": 0.5375,
+            "balanced_accuracy": 0.5375,
+            "confusion_matrix_rows_true": [
+              [
+                3,
+                37
+              ],
+              [
+                0,
+                40
+              ]
+            ],
+            "n_test_subjects": 80
+          }
+        }
+      },
       "seed": 2718,
       "sorted_order_probe": {
         "cohort": "in_distribution",
         "max_abs_cv_difference": 0.0,
         "mean_original_normalized_rmssd": 0.1281472003875333,
-        "mean_sorted_normalized_rmssd": 0.015769811350558816,
+        "mean_sorted_normalized_rmssd": 0.015769811350558813,
         "method": "Pair each subject of the named holdout cohort with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
         "original": {
           "accuracy": 1.0,
@@ -699,6 +843,78 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
           "n_test_subjects": 80
         }
       },
+      "reversal_controls": {
+        "in_distribution": {
+          "max_abs_feature_difference": 0.0,
+          "method": "Predeclared negative control: reverse each same-subject RR sequence; CV and squared adjacent differences are mathematically invariant to reversal (floating-point summation may differ). Fixed training model, no refit or tuning. Sorting is a distinct nonphysiological perturbation; neither is clinical validation.",
+          "original": {
+            "accuracy": 1.0,
+            "balanced_accuracy": 1.0,
+            "confusion_matrix_rows_true": [
+              [
+                40,
+                0
+              ],
+              [
+                0,
+                40
+              ]
+            ],
+            "n_test_subjects": 80
+          },
+          "prediction_disagreements": 0,
+          "reversed": {
+            "accuracy": 1.0,
+            "balanced_accuracy": 1.0,
+            "confusion_matrix_rows_true": [
+              [
+                40,
+                0
+              ],
+              [
+                0,
+                40
+              ]
+            ],
+            "n_test_subjects": 80
+          }
+        },
+        "noise_shift": {
+          "max_abs_feature_difference": 0.0,
+          "method": "Predeclared negative control: reverse each same-subject RR sequence; CV and squared adjacent differences are mathematically invariant to reversal (floating-point summation may differ). Fixed training model, no refit or tuning. Sorting is a distinct nonphysiological perturbation; neither is clinical validation.",
+          "original": {
+            "accuracy": 0.5375,
+            "balanced_accuracy": 0.5375,
+            "confusion_matrix_rows_true": [
+              [
+                3,
+                37
+              ],
+              [
+                0,
+                40
+              ]
+            ],
+            "n_test_subjects": 80
+          },
+          "prediction_disagreements": 0,
+          "reversed": {
+            "accuracy": 0.5375,
+            "balanced_accuracy": 0.5375,
+            "confusion_matrix_rows_true": [
+              [
+                3,
+                37
+              ],
+              [
+                0,
+                40
+              ]
+            ],
+            "n_test_subjects": 80
+          }
+        }
+      },
       "seed": 3141,
       "sorted_order_probe": {
         "cohort": "in_distribution",
@@ -786,4 +1002,4 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
 }
 ```
 
-Result SHA-256: `3f66fa9d20105fbfe47df30c5a030a47250a4bee04b6bc02a469224a3790c397`
+Result SHA-256: `846887a77cf5a91ba1d7f4bc04ee2bd4b11060f98faa8a23638dfbe1f0d72992`

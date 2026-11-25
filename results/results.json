@@ -191,6 +191,78 @@
             "n_test_subjects": 80
           }
         },
+        "reversal_controls": {
+          "in_distribution": {
+            "max_abs_feature_difference": 0.0,
+            "method": "Predeclared negative control: reverse each same-subject RR sequence; CV and squared adjacent differences are mathematically invariant to reversal (floating-point summation may differ). Fixed training model, no refit or tuning. Sorting is a distinct nonphysiological perturbation; neither is clinical validation.",
+            "original": {
+              "accuracy": 1.0,
+              "balanced_accuracy": 1.0,
+              "confusion_matrix_rows_true": [
+                [
+                  40,
+                  0
+                ],
+                [
+                  0,
+                  40
+                ]
+              ],
+              "n_test_subjects": 80
+            },
+            "prediction_disagreements": 0,
+            "reversed": {
+              "accuracy": 1.0,
+              "balanced_accuracy": 1.0,
+              "confusion_matrix_rows_true": [
+                [
+                  40,
+                  0
+                ],
+                [
+                  0,
+                  40
+                ]
+              ],
+              "n_test_subjects": 80
+            }
+          },
+          "noise_shift": {
+            "max_abs_feature_difference": 0.0,
+            "method": "Predeclared negative control: reverse each same-subject RR sequence; CV and squared adjacent differences are mathematically invariant to reversal (floating-point summation may differ). Fixed training model, no refit or tuning. Sorting is a distinct nonphysiological perturbation; neither is clinical validation.",
+            "original": {
+              "accuracy": 0.6,
+              "balanced_accuracy": 0.6,
+              "confusion_matrix_rows_true": [
+                [
+                  8,
+                  32
+                ],
+                [
+                  0,
+                  40
+                ]
+              ],
+              "n_test_subjects": 80
+            },
+            "prediction_disagreements": 0,
+            "reversed": {
+              "accuracy": 0.6,
+              "balanced_accuracy": 0.6,
+              "confusion_matrix_rows_true": [
+                [
+                  8,
+                  32
+                ],
+                [
+                  0,
+                  40
+                ]
+              ],
+              "n_test_subjects": 80
+            }
+          }
+        },
         "seed": 1729,
         "sorted_order_probe": {
           "cohort": "in_distribution",
@@ -449,12 +521,84 @@
             "n_test_subjects": 80
           }
         },
+        "reversal_controls": {
+          "in_distribution": {
+            "max_abs_feature_difference": 0.0,
+            "method": "Predeclared negative control: reverse each same-subject RR sequence; CV and squared adjacent differences are mathematically invariant to reversal (floating-point summation may differ). Fixed training model, no refit or tuning. Sorting is a distinct nonphysiological perturbation; neither is clinical validation.",
+            "original": {
+              "accuracy": 1.0,
+              "balanced_accuracy": 1.0,
+              "confusion_matrix_rows_true": [
+                [
+                  40,
+                  0
+                ],
+                [
+                  0,
+                  40
+                ]
+              ],
+              "n_test_subjects": 80
+            },
+            "prediction_disagreements": 0,
+            "reversed": {
+              "accuracy": 1.0,
+              "balanced_accuracy": 1.0,
+              "confusion_matrix_rows_true": [
+                [
+                  40,
+                  0
+                ],
+                [
+                  0,
+                  40
+                ]
+              ],
+              "n_test_subjects": 80
+            }
+          },
+          "noise_shift": {
+            "max_abs_feature_difference": 0.0,
+            "method": "Predeclared negative control: reverse each same-subject RR sequence; CV and squared adjacent differences are mathematically invariant to reversal (floating-point summation may differ). Fixed training model, no refit or tuning. Sorting is a distinct nonphysiological perturbation; neither is clinical validation.",
+            "original": {
+              "accuracy": 0.5375,
+              "balanced_accuracy": 0.5375,
+              "confusion_matrix_rows_true": [
+                [
+                  3,
+                  37
+                ],
+                [
+                  0,
+                  40
+                ]
+              ],
+              "n_test_subjects": 80
+            },
+            "prediction_disagreements": 0,
+            "reversed": {
+              "accuracy": 0.5375,
+              "balanced_accuracy": 0.5375,
+              "confusion_matrix_rows_true": [
+                [
+                  3,
+                  37
+                ],
+                [
+                  0,
+                  40
+                ]
+              ],
+              "n_test_subjects": 80
+            }
+          }
+        },
         "seed": 2718,
         "sorted_order_probe": {
           "cohort": "in_distribution",
           "max_abs_cv_difference": 0.0,
           "mean_original_normalized_rmssd": 0.1281472003875333,
-          "mean_sorted_normalized_rmssd": 0.015769811350558816,
+          "mean_sorted_normalized_rmssd": 0.015769811350558813,
           "method": "Pair each subject of the named holdout cohort with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
           "original": {
             "accuracy": 1.0,
@@ -707,6 +851,78 @@
             "n_test_subjects": 80
           }
         },
+        "reversal_controls": {
+          "in_distribution": {
+            "max_abs_feature_difference": 0.0,
+            "method": "Predeclared negative control: reverse each same-subject RR sequence; CV and squared adjacent differences are mathematically invariant to reversal (floating-point summation may differ). Fixed training model, no refit or tuning. Sorting is a distinct nonphysiological perturbation; neither is clinical validation.",
+            "original": {
+              "accuracy": 1.0,
+              "balanced_accuracy": 1.0,
+              "confusion_matrix_rows_true": [
+                [
+                  40,
+                  0
+                ],
+                [
+                  0,
+                  40
+                ]
+              ],
+              "n_test_subjects": 80
+            },
+            "prediction_disagreements": 0,
+            "reversed": {
+              "accuracy": 1.0,
+              "balanced_accuracy": 1.0,
+              "confusion_matrix_rows_true": [
+                [
+                  40,
+                  0
+                ],
+                [
+                  0,
+                  40
+                ]
+              ],
+              "n_test_subjects": 80
+            }
+          },
+          "noise_shift": {
+            "max_abs_feature_difference": 0.0,
+            "method": "Predeclared negative control: reverse each same-subject RR sequence; CV and squared adjacent differences are mathematically invariant to reversal (floating-point summation may differ). Fixed training model, no refit or tuning. Sorting is a distinct nonphysiological perturbation; neither is clinical validation.",
+            "original": {
+              "accuracy": 0.5375,
+              "balanced_accuracy": 0.5375,
+              "confusion_matrix_rows_true": [
+                [
+                  3,
+                  37
+                ],
+                [
+                  0,
+                  40
+                ]
+              ],
+              "n_test_subjects": 80
+            },
+            "prediction_disagreements": 0,
+            "reversed": {
+              "accuracy": 0.5375,
+              "balanced_accuracy": 0.5375,
+              "confusion_matrix_rows_true": [
+                [
+                  3,
+                  37
+                ],
+                [
+                  0,
+                  40
+                ]
+              ],
+              "n_test_subjects": 80
+            }
+          }
+        },
         "seed": 3141,
         "sorted_order_probe": {
           "cohort": "in_distribution",
@@ -794,5 +1010,5 @@
   },
   "project": "CardioAI-Continuous-Benchmark",
   "schema_version": 1,
-  "source_sha256": "0b1e073c0d50fe6d33fde16a4b55bb485d51f26bc43f644113628966f4a5238f"
+  "source_sha256": "01919a966619cc301bfc2f9edff75e5449dbd76d7a973dcbb3ee23003d515713"
 }

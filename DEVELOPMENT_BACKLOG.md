@@ -50,3 +50,12 @@ Temporal-order mismatch on shifted holdouts.
 
 1. Predeclare reversal/time-permutation controls and compare separate cohorts without test-set tuning.
 2. Review public-data terms, exact release/checksums and subject mappings before ingestion; keep synthetic and public-data evaluation distinct.
+
+## Completed — 2026-11-25
+
+Reversal negative controls.
+
+## Current next steps
+
+1. Add independent predeclared permutations with explicit provenance, without choosing a favorable perturbation.
+2. Review real-data license/version/checksums and subject mappings before ingestion.

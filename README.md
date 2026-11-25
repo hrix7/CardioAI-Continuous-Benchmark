@@ -89,3 +89,7 @@ Export per-class subject counts and original-only/perturbed-only/equal correctne
 ### November 24 development
 
 Retain RR sequences for the existing independent shifted cohort and evaluate paired sorting with the same training-fitted model. Add explicit cohort identity and a separate bootstrap seed; preserve original generator rows, subjects and marginal values. Test exact original scores, reproducibility, unsupported cohort rejection and no holdout refit. Each paired interval is conditional on its own cohort; cohorts are not pooled.
+
+### November 25 development
+
+Reverse RR sequences within each existing holdout cohort as a predeclared negative control. CV and squared adjacent differences are mathematically invariant to reversal; report actual feature differences, confusion scores and prediction disagreements rather than forcing zero. No refit or tuning; sorting remains a distinct perturbation. Hand-sequence and deliberately mocked disagreement tests verify behavior.

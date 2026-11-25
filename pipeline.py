@@ -145,6 +145,13 @@ def sorted_order_probe(model,rr_subjects,bootstrap_seed=0,cohort="in_distributio
     truth=[y for x,y in original]
     return dict(cohort=cohort,paired_delta=paired_bootstrap_delta(truth,[predict(model,x) for x,y in original],[predict(model,x) for x,y in ordered],bootstrap_seed),original=scores(truth,[predict(model,x) for x,y in original]),sorted_order=scores(truth,[predict(model,x) for x,y in ordered]),mean_original_normalized_rmssd=mean([x[1] for x,y in original]),mean_sorted_normalized_rmssd=mean([x[1] for x,y in ordered]),max_abs_cv_difference=max(abs(a[0][0]-b[0][0]) for a,b in zip(original,ordered)),method='Pair each subject of the named holdout cohort with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.')
 
+def reversal_order_probe(model,rr_subjects):
+    original=[features(rr) for rr,y in rr_subjects]
+    reversed_features=[features(list(reversed(rr))) for rr,y in rr_subjects]
+    truth=[y for rr,y in rr_subjects]
+    a=[predict(model,x) for x in original];b=[predict(model,x) for x in reversed_features]
+    return dict(original=scores(truth,a),reversed=scores(truth,b),prediction_disagreements=sum(x!=y for x,y in zip(a,b)),max_abs_feature_difference=max(abs(x-y) for a,b in zip(original,reversed_features) for x,y in zip(a,b)),method='Predeclared negative control: reverse each same-subject RR sequence; CV and squared adjacent differences are mathematically invariant to reversal (floating-point summation may differ). Fixed training model, no refit or tuning. Sorting is a distinct nonphysiological perturbation; neither is clinical validation.')
+
 def run(config):
     validate_config(config)
     rows = [['seed', 'split', 'subject', 'label', 'beat', 'rr_seconds']]
@@ -174,6 +181,7 @@ def run(config):
                             'training_resample_sensitivity':training_resample_scores(train,test,shifted,seed+300000),
                             'sorted_order_probe':sorted_order_probe(model,test_rr,seed+400000),
                             'noise_shift_sorted_order_probe':sorted_order_probe(model,shifted_rr,seed+500000,'noise_shift'),
+                            'reversal_controls':dict(in_distribution=reversal_order_probe(model,test_rr),noise_shift=reversal_order_probe(model,shifted_rr)),
                             'model':model})
     return rows, {'experiments':experiments, 'interpretation':'Synthetic regular versus irregular RR patterns. Labels are generator settings, not diagnoses. No clinical inference.'}
 
