@@ -9,7 +9,7 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
   "experiments": [
     {
       "cv_baseline_class_means_training_only": [
-        0.028465321045141965,
+        0.02846532104514196,
         0.1619375441582662
       ],
       "cv_baseline_in_distribution": {
@@ -87,12 +87,12 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
         ],
         [
           0.06934728113872406,
-          0.09834448285642336
+          0.09834448285642335
         ],
         [
           [
             -0.9623464750270672,
-            -0.9588254932405904
+            -0.9588254932405906
           ],
           [
             0.9623464750270673,
@@ -125,7 +125,7 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
       "noise_shift_sorted_order_probe": {
         "cohort": "noise_shift",
         "max_abs_cv_difference": 0.0,
-        "mean_original_normalized_rmssd": 0.2583230424652658,
+        "mean_original_normalized_rmssd": 0.2583230424652657,
         "mean_sorted_normalized_rmssd": 0.033836264340113796,
         "method": "Pair each subject of the named holdout cohort with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
         "original": {
@@ -259,7 +259,7 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
       "sorted_order_probe": {
         "cohort": "in_distribution",
         "max_abs_cv_difference": 0.0,
-        "mean_original_normalized_rmssd": 0.13014553037087703,
+        "mean_original_normalized_rmssd": 0.130145530370877,
         "mean_sorted_normalized_rmssd": 0.016380059841753045,
         "method": "Pair each subject of the named holdout cohort with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
         "original": {
@@ -426,7 +426,7 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
           ],
           [
             0.9419656116685933,
-            0.9282175527040731
+            0.928217552704073
           ]
         ]
       ],
@@ -669,7 +669,7 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
     },
     {
       "cv_baseline_class_means_training_only": [
-        0.028987905632829068,
+        0.02898790563282907,
         0.1618663874955769
       ],
       "cv_baseline_in_distribution": {
@@ -751,12 +751,12 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
         ],
         [
           [
-            -0.9415177127185425,
+            -0.9415177127185426,
             -0.9280553985029478
           ],
           [
-            0.9415177127185425,
-            0.9280553985029477
+            0.9415177127185423,
+            0.9280553985029476
           ]
         ]
       ],
@@ -1002,4 +1002,4 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
 }
 ```
 
-Result SHA-256: `846887a77cf5a91ba1d7f4bc04ee2bd4b11060f98faa8a23638dfbe1f0d72992`
+Result SHA-256: `289aa80cb07150b61f75290856d359b353060ce61c2c19735e37d08e1119a3cd`

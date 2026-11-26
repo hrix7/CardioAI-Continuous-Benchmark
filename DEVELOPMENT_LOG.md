@@ -74,3 +74,9 @@ Validation before publication: 33 full-suite tests passed, pipeline regeneration
 Reverse RR sequences within each existing holdout cohort as a predeclared negative control. CV and squared adjacent differences are mathematically invariant to reversal; report actual feature differences, confusion scores and prediction disagreements rather than forcing zero. No refit or tuning; sorting remains a distinct perturbation. Hand-sequence and deliberately mocked disagreement tests verify behavior.
 
 Pre-publication validation: 35 full-suite tests passed; pipeline generation and independent --verify, scoped diff and checksum review, git diff --check passed. Existing workflow policy tests included; no permission/workflow changes. Hosted CI followed after publication.
+
+## 2026-11-26 — Scale-safe dimensionless RR features
+
+Normalize positive RR intervals by their maximum before computing CV and normalized RMSSD; use hypot for the adjacent-difference norm. Mathematical features remain scale-invariant, while extreme finite/subnormal intervals no longer overflow or collapse their squares. Independent hand formulas and extreme-scale tests cover the change. Recompute actual results; last floating-point bits may change.
+
+Pre-publication: 37 full-suite tests passed, regeneration and independent --verify, scoped diff/checksum review and git diff --check passed. Workflow policy tests included; no permission/workflow changes. Hosted validation followed after push.

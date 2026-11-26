@@ -59,3 +59,12 @@ Reversal negative controls.
 
 1. Add independent predeclared permutations with explicit provenance, without choosing a favorable perturbation.
 2. Review real-data license/version/checksums and subject mappings before ingestion.
+
+## Completed — 2026-11-26
+
+Scale-safe dimensionless RR features.
+
+## Current ordered next steps
+
+1. Predeclare additional permutation controls without selecting favorable holdout behavior.
+2. Review official data terms/version/checksums and subject mapping before any real-data ingestion.

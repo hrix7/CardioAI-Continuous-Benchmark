@@ -93,3 +93,7 @@ Retain RR sequences for the existing independent shifted cohort and evaluate pai
 ### November 25 development
 
 Reverse RR sequences within each existing holdout cohort as a predeclared negative control. CV and squared adjacent differences are mathematically invariant to reversal; report actual feature differences, confusion scores and prediction disagreements rather than forcing zero. No refit or tuning; sorting remains a distinct perturbation. Hand-sequence and deliberately mocked disagreement tests verify behavior.
+
+### November 26 development
+
+Normalize positive RR intervals by their maximum before computing CV and normalized RMSSD; use hypot for the adjacent-difference norm. Mathematical features remain scale-invariant, while extreme finite/subnormal intervals no longer overflow or collapse their squares. Independent hand formulas and extreme-scale tests cover the change. Recompute actual results; last floating-point bits may change.

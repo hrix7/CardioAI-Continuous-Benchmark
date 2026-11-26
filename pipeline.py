@@ -36,8 +36,10 @@ def rhythm(rng, label, beats, shift=0):
 def features(rr):
     if len(rr) < 3 or any(x <= 0 or not math.isfinite(x) for x in rr):
         raise ValueError('RR intervals must be finite and positive; at least three required')
-    return [statistics.stdev(rr) / mean(rr),
-            math.sqrt(mean([(b-a)**2 for a,b in zip(rr, rr[1:])])) / mean(rr)]
+    # Both features are scale-invariant: normalize before squaring differences.
+    scale=max(rr);values=[v/scale for v in rr];center=mean(values)
+    return [statistics.stdev(values)/center,
+            math.hypot(*(b-a for a,b in zip(values,values[1:])))/math.sqrt(len(values)-1)/center]
 
 def finite_pair(x):
     return isinstance(x,(list,tuple)) and len(x)==2 and all(not isinstance(v,bool) and isinstance(v,(int,float)) and math.isfinite(v) for v in x)
