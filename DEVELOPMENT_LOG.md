@@ -80,3 +80,10 @@ Pre-publication validation: 35 full-suite tests passed; pipeline generation and 
 Normalize positive RR intervals by their maximum before computing CV and normalized RMSSD; use hypot for the adjacent-difference norm. Mathematical features remain scale-invariant, while extreme finite/subnormal intervals no longer overflow or collapse their squares. Independent hand formulas and extreme-scale tests cover the change. Recompute actual results; last floating-point bits may change.
 
 Pre-publication: 37 full-suite tests passed, regeneration and independent --verify, scoped diff/checksum review and git diff --check passed. Workflow policy tests included; no permission/workflow changes. Hosted validation followed after push.
+
+
+## 2026-11-28 — Predeclared permutation controls
+
+Three fixed independent index-permutation seeds (91001–91003), order hashes and paired balanced-accuracy differences, separately per holdout cohort. Same RR marginals/labels and fixed training model; no favorable permutation selection or additional independent cohort. Added independent boundary/oracle tests. Full-suite and regenerated artifact checks are required before publication; actual counts and hosted checks are reported in the portfolio development log.
+
+Pre-push evidence: 39 full-suite tests passed; pipeline generation and independent --verify passed; git diff --check passed. Generated primary data bytes remain unchanged. No clinical or population validation.

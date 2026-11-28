@@ -183,6 +183,144 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
           "n_test_subjects": 80
         }
       },
+      "permutation_controls": {
+        "in_distribution": {
+          "cases": [
+            {
+              "index_order_sha256": "d9c031a47351a157ba9db5176fff56a8e0508b14f7e51ed79c92e85297c81fee",
+              "metrics": {
+                "accuracy": 1.0,
+                "balanced_accuracy": 1.0,
+                "confusion_matrix_rows_true": [
+                  [
+                    40,
+                    0
+                  ],
+                  [
+                    0,
+                    40
+                  ]
+                ],
+                "n_test_subjects": 80
+              },
+              "original_minus_permuted_balanced_accuracy": 0.0,
+              "prediction_disagreements": 0,
+              "seed": 91001
+            },
+            {
+              "index_order_sha256": "fde60b782ccb95943a1e74b47f264839db4795f9c8acc4727b465e8a4bd6447c",
+              "metrics": {
+                "accuracy": 1.0,
+                "balanced_accuracy": 1.0,
+                "confusion_matrix_rows_true": [
+                  [
+                    40,
+                    0
+                  ],
+                  [
+                    0,
+                    40
+                  ]
+                ],
+                "n_test_subjects": 80
+              },
+              "original_minus_permuted_balanced_accuracy": 0.0,
+              "prediction_disagreements": 0,
+              "seed": 91002
+            },
+            {
+              "index_order_sha256": "baffd46fe4e6ec7db05d7a473092df8c7889e9d24d91548180c766ed28752541",
+              "metrics": {
+                "accuracy": 1.0,
+                "balanced_accuracy": 1.0,
+                "confusion_matrix_rows_true": [
+                  [
+                    40,
+                    0
+                  ],
+                  [
+                    0,
+                    40
+                  ]
+                ],
+                "n_test_subjects": 80
+              },
+              "original_minus_permuted_balanced_accuracy": 0.0,
+              "prediction_disagreements": 0,
+              "seed": 91003
+            }
+          ],
+          "method": "Three fixed index-permutation RNG seeds; subject order is manifest order. Same RR marginals and labels, fixed training model, no refit, tuning or favorable-case selection. Conditional temporal-order probe, not independent subjects or clinical validation."
+        },
+        "noise_shift": {
+          "cases": [
+            {
+              "index_order_sha256": "d9c031a47351a157ba9db5176fff56a8e0508b14f7e51ed79c92e85297c81fee",
+              "metrics": {
+                "accuracy": 0.5875,
+                "balanced_accuracy": 0.5875,
+                "confusion_matrix_rows_true": [
+                  [
+                    7,
+                    33
+                  ],
+                  [
+                    0,
+                    40
+                  ]
+                ],
+                "n_test_subjects": 80
+              },
+              "original_minus_permuted_balanced_accuracy": 0.012499999999999956,
+              "prediction_disagreements": 5,
+              "seed": 91001
+            },
+            {
+              "index_order_sha256": "fde60b782ccb95943a1e74b47f264839db4795f9c8acc4727b465e8a4bd6447c",
+              "metrics": {
+                "accuracy": 0.6125,
+                "balanced_accuracy": 0.6125,
+                "confusion_matrix_rows_true": [
+                  [
+                    9,
+                    31
+                  ],
+                  [
+                    0,
+                    40
+                  ]
+                ],
+                "n_test_subjects": 80
+              },
+              "original_minus_permuted_balanced_accuracy": -0.012500000000000067,
+              "prediction_disagreements": 5,
+              "seed": 91002
+            },
+            {
+              "index_order_sha256": "baffd46fe4e6ec7db05d7a473092df8c7889e9d24d91548180c766ed28752541",
+              "metrics": {
+                "accuracy": 0.6,
+                "balanced_accuracy": 0.6,
+                "confusion_matrix_rows_true": [
+                  [
+                    8,
+                    32
+                  ],
+                  [
+                    0,
+                    40
+                  ]
+                ],
+                "n_test_subjects": 80
+              },
+              "original_minus_permuted_balanced_accuracy": 0.0,
+              "prediction_disagreements": 6,
+              "seed": 91003
+            }
+          ],
+          "method": "Three fixed index-permutation RNG seeds; subject order is manifest order. Same RR marginals and labels, fixed training model, no refit, tuning or favorable-case selection. Conditional temporal-order probe, not independent subjects or clinical validation."
+        }
+      },
       "reversal_controls": {
         "in_distribution": {
           "max_abs_feature_difference": 0.0,
@@ -513,6 +651,144 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
           "n_test_subjects": 80
         }
       },
+      "permutation_controls": {
+        "in_distribution": {
+          "cases": [
+            {
+              "index_order_sha256": "d9c031a47351a157ba9db5176fff56a8e0508b14f7e51ed79c92e85297c81fee",
+              "metrics": {
+                "accuracy": 1.0,
+                "balanced_accuracy": 1.0,
+                "confusion_matrix_rows_true": [
+                  [
+                    40,
+                    0
+                  ],
+                  [
+                    0,
+                    40
+                  ]
+                ],
+                "n_test_subjects": 80
+              },
+              "original_minus_permuted_balanced_accuracy": 0.0,
+              "prediction_disagreements": 0,
+              "seed": 91001
+            },
+            {
+              "index_order_sha256": "fde60b782ccb95943a1e74b47f264839db4795f9c8acc4727b465e8a4bd6447c",
+              "metrics": {
+                "accuracy": 1.0,
+                "balanced_accuracy": 1.0,
+                "confusion_matrix_rows_true": [
+                  [
+                    40,
+                    0
+                  ],
+                  [
+                    0,
+                    40
+                  ]
+                ],
+                "n_test_subjects": 80
+              },
+              "original_minus_permuted_balanced_accuracy": 0.0,
+              "prediction_disagreements": 0,
+              "seed": 91002
+            },
+            {
+              "index_order_sha256": "baffd46fe4e6ec7db05d7a473092df8c7889e9d24d91548180c766ed28752541",
+              "metrics": {
+                "accuracy": 1.0,
+                "balanced_accuracy": 1.0,
+                "confusion_matrix_rows_true": [
+                  [
+                    40,
+                    0
+                  ],
+                  [
+                    0,
+                    40
+                  ]
+                ],
+                "n_test_subjects": 80
+              },
+              "original_minus_permuted_balanced_accuracy": 0.0,
+              "prediction_disagreements": 0,
+              "seed": 91003
+            }
+          ],
+          "method": "Three fixed index-permutation RNG seeds; subject order is manifest order. Same RR marginals and labels, fixed training model, no refit, tuning or favorable-case selection. Conditional temporal-order probe, not independent subjects or clinical validation."
+        },
+        "noise_shift": {
+          "cases": [
+            {
+              "index_order_sha256": "d9c031a47351a157ba9db5176fff56a8e0508b14f7e51ed79c92e85297c81fee",
+              "metrics": {
+                "accuracy": 0.5375,
+                "balanced_accuracy": 0.5375,
+                "confusion_matrix_rows_true": [
+                  [
+                    3,
+                    37
+                  ],
+                  [
+                    0,
+                    40
+                  ]
+                ],
+                "n_test_subjects": 80
+              },
+              "original_minus_permuted_balanced_accuracy": 0.0,
+              "prediction_disagreements": 0,
+              "seed": 91001
+            },
+            {
+              "index_order_sha256": "fde60b782ccb95943a1e74b47f264839db4795f9c8acc4727b465e8a4bd6447c",
+              "metrics": {
+                "accuracy": 0.525,
+                "balanced_accuracy": 0.525,
+                "confusion_matrix_rows_true": [
+                  [
+                    2,
+                    38
+                  ],
+                  [
+                    0,
+                    40
+                  ]
+                ],
+                "n_test_subjects": 80
+              },
+              "original_minus_permuted_balanced_accuracy": 0.012499999999999956,
+              "prediction_disagreements": 1,
+              "seed": 91002
+            },
+            {
+              "index_order_sha256": "baffd46fe4e6ec7db05d7a473092df8c7889e9d24d91548180c766ed28752541",
+              "metrics": {
+                "accuracy": 0.525,
+                "balanced_accuracy": 0.525,
+                "confusion_matrix_rows_true": [
+                  [
+                    2,
+                    38
+                  ],
+                  [
+                    0,
+                    40
+                  ]
+                ],
+                "n_test_subjects": 80
+              },
+              "original_minus_permuted_balanced_accuracy": 0.012499999999999956,
+              "prediction_disagreements": 1,
+              "seed": 91003
+            }
+          ],
+          "method": "Three fixed index-permutation RNG seeds; subject order is manifest order. Same RR marginals and labels, fixed training model, no refit, tuning or favorable-case selection. Conditional temporal-order probe, not independent subjects or clinical validation."
+        }
+      },
       "reversal_controls": {
         "in_distribution": {
           "max_abs_feature_difference": 0.0,
@@ -590,7 +866,7 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
         "cohort": "in_distribution",
         "max_abs_cv_difference": 0.0,
         "mean_original_normalized_rmssd": 0.1281472003875333,
-        "mean_sorted_normalized_rmssd": 0.015769811350558816,
+        "mean_sorted_normalized_rmssd": 0.015769811350558813,
         "method": "Pair each subject of the named holdout cohort with its sorted RR values: same labels, length and marginal values, deliberately altered order. Fixed already-fitted training model; no refit/selection/tuning. This nonphysiological temporal-order mismatch is separate from independent-noise holdouts and is not an extra independent cohort.",
         "original": {
           "accuracy": 1.0,
@@ -843,6 +1119,144 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
           "n_test_subjects": 80
         }
       },
+      "permutation_controls": {
+        "in_distribution": {
+          "cases": [
+            {
+              "index_order_sha256": "d9c031a47351a157ba9db5176fff56a8e0508b14f7e51ed79c92e85297c81fee",
+              "metrics": {
+                "accuracy": 1.0,
+                "balanced_accuracy": 1.0,
+                "confusion_matrix_rows_true": [
+                  [
+                    40,
+                    0
+                  ],
+                  [
+                    0,
+                    40
+                  ]
+                ],
+                "n_test_subjects": 80
+              },
+              "original_minus_permuted_balanced_accuracy": 0.0,
+              "prediction_disagreements": 0,
+              "seed": 91001
+            },
+            {
+              "index_order_sha256": "fde60b782ccb95943a1e74b47f264839db4795f9c8acc4727b465e8a4bd6447c",
+              "metrics": {
+                "accuracy": 1.0,
+                "balanced_accuracy": 1.0,
+                "confusion_matrix_rows_true": [
+                  [
+                    40,
+                    0
+                  ],
+                  [
+                    0,
+                    40
+                  ]
+                ],
+                "n_test_subjects": 80
+              },
+              "original_minus_permuted_balanced_accuracy": 0.0,
+              "prediction_disagreements": 0,
+              "seed": 91002
+            },
+            {
+              "index_order_sha256": "baffd46fe4e6ec7db05d7a473092df8c7889e9d24d91548180c766ed28752541",
+              "metrics": {
+                "accuracy": 1.0,
+                "balanced_accuracy": 1.0,
+                "confusion_matrix_rows_true": [
+                  [
+                    40,
+                    0
+                  ],
+                  [
+                    0,
+                    40
+                  ]
+                ],
+                "n_test_subjects": 80
+              },
+              "original_minus_permuted_balanced_accuracy": 0.0,
+              "prediction_disagreements": 0,
+              "seed": 91003
+            }
+          ],
+          "method": "Three fixed index-permutation RNG seeds; subject order is manifest order. Same RR marginals and labels, fixed training model, no refit, tuning or favorable-case selection. Conditional temporal-order probe, not independent subjects or clinical validation."
+        },
+        "noise_shift": {
+          "cases": [
+            {
+              "index_order_sha256": "d9c031a47351a157ba9db5176fff56a8e0508b14f7e51ed79c92e85297c81fee",
+              "metrics": {
+                "accuracy": 0.6,
+                "balanced_accuracy": 0.6,
+                "confusion_matrix_rows_true": [
+                  [
+                    8,
+                    32
+                  ],
+                  [
+                    0,
+                    40
+                  ]
+                ],
+                "n_test_subjects": 80
+              },
+              "original_minus_permuted_balanced_accuracy": -0.0625,
+              "prediction_disagreements": 5,
+              "seed": 91001
+            },
+            {
+              "index_order_sha256": "fde60b782ccb95943a1e74b47f264839db4795f9c8acc4727b465e8a4bd6447c",
+              "metrics": {
+                "accuracy": 0.5625,
+                "balanced_accuracy": 0.5625,
+                "confusion_matrix_rows_true": [
+                  [
+                    5,
+                    35
+                  ],
+                  [
+                    0,
+                    40
+                  ]
+                ],
+                "n_test_subjects": 80
+              },
+              "original_minus_permuted_balanced_accuracy": -0.025000000000000022,
+              "prediction_disagreements": 2,
+              "seed": 91002
+            },
+            {
+              "index_order_sha256": "baffd46fe4e6ec7db05d7a473092df8c7889e9d24d91548180c766ed28752541",
+              "metrics": {
+                "accuracy": 0.5625,
+                "balanced_accuracy": 0.5625,
+                "confusion_matrix_rows_true": [
+                  [
+                    5,
+                    35
+                  ],
+                  [
+                    0,
+                    40
+                  ]
+                ],
+                "n_test_subjects": 80
+              },
+              "original_minus_permuted_balanced_accuracy": -0.025000000000000022,
+              "prediction_disagreements": 2,
+              "seed": 91003
+            }
+          ],
+          "method": "Three fixed index-permutation RNG seeds; subject order is manifest order. Same RR marginals and labels, fixed training model, no refit, tuning or favorable-case selection. Conditional temporal-order probe, not independent subjects or clinical validation."
+        }
+      },
       "reversal_controls": {
         "in_distribution": {
           "max_abs_feature_difference": 0.0,
@@ -1002,4 +1416,4 @@ Generated from `config.json` by `pipeline.py`. Metrics are computed, never hand-
 }
 ```
 
-Result SHA-256: `c8d8deca32bab09509128c2a6581866b17d444c4b258162144e6b520408aad45`
+Result SHA-256: `623c59dd71c7054c3c03d74f7a67726461f68cbb149f9dad5c6dcd6d633b84f3`

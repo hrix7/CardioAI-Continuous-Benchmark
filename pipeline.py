@@ -154,6 +154,26 @@ def reversal_order_probe(model,rr_subjects):
     a=[predict(model,x) for x in original];b=[predict(model,x) for x in reversed_features]
     return dict(original=scores(truth,a),reversed=scores(truth,b),prediction_disagreements=sum(x!=y for x,y in zip(a,b)),max_abs_feature_difference=max(abs(x-y) for a,b in zip(original,reversed_features) for x,y in zip(a,b)),method='Predeclared negative control: reverse each same-subject RR sequence; CV and squared adjacent differences are mathematically invariant to reversal (floating-point summation may differ). Fixed training model, no refit or tuning. Sorting is a distinct nonphysiological perturbation; neither is clinical validation.')
 
+def permutation_order_probe(model, rr_subjects, seeds=(91001,91002,91003)):
+    if not isinstance(seeds,(list,tuple)) or not seeds or any(type(v) is not int for v in seeds) or len(set(seeds))!=len(seeds):
+        raise ValueError('unique integer permutation seeds required')
+    original=[features(rr) for rr,y in rr_subjects]
+    truth=[y for rr,y in rr_subjects]
+    predictions=[predict(model,x) for x in original]
+    cases=[]
+    for seed in seeds:
+        rng=random.Random(seed);permuted=[];order=[]
+        for rr,y in rr_subjects:
+            indices=list(range(len(rr)));rng.shuffle(indices);order.append(indices)
+            permuted.append(features([rr[i] for i in indices]))
+        output=[predict(model,x) for x in permuted]
+        cases.append(dict(seed=seed,index_order_sha256=digest(encode(order)),
+                          metrics=scores(truth,output),
+                          original_minus_permuted_balanced_accuracy=scores(truth,predictions)['balanced_accuracy']-scores(truth,output)['balanced_accuracy'],
+                          prediction_disagreements=sum(a!=b for a,b in zip(predictions,output))))
+    return dict(cases=cases,method='Three fixed index-permutation RNG seeds; subject order is manifest order. Same RR marginals and labels, fixed training model, no refit, tuning or favorable-case selection. Conditional temporal-order probe, not independent subjects or clinical validation.')
+
+
 def run(config):
     validate_config(config)
     rows = [['seed', 'split', 'subject', 'label', 'beat', 'rr_seconds']]
@@ -183,6 +203,7 @@ def run(config):
                             'training_resample_sensitivity':training_resample_scores(train,test,shifted,seed+300000),
                             'sorted_order_probe':sorted_order_probe(model,test_rr,seed+400000),
                             'noise_shift_sorted_order_probe':sorted_order_probe(model,shifted_rr,seed+500000,'noise_shift'),
+                            'permutation_controls':dict(in_distribution=permutation_order_probe(model,test_rr),noise_shift=permutation_order_probe(model,shifted_rr)),
                             'reversal_controls':dict(in_distribution=reversal_order_probe(model,test_rr),noise_shift=reversal_order_probe(model,shifted_rr)),
                             'model':model})
     return rows, {'experiments':experiments, 'interpretation':'Synthetic regular versus irregular RR patterns. Labels are generator settings, not diagnoses. No clinical inference.'}
